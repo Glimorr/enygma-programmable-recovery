@@ -748,8 +748,8 @@
     },
     {
       "path": "index.html",
-      "sha256": "45c0858b68ae3599e81edaed050e75d7a6e2f7aef2a262d63ec29494e857c756",
-      "size": 8423
+      "sha256": "e458f68bbcb7994d6d0aafbd5762b526feb63b437de643eeb13a9ccd61b75fa5",
+      "size": 8429
     },
     {
       "path": "lab/EnygmaRecoveryProbe.t.sol",
@@ -768,8 +768,8 @@
     },
     {
       "path": "scripts/check_links.py",
-      "sha256": "24d37f58cd23c86389b29f4adf7e88e2b69936ed979dd8ef017638674913b0d4",
-      "size": 1252
+      "sha256": "2f087c7fb0a8462a889eee796ff9050decebb154bd244be2966f6f427d2ca221",
+      "size": 1378
     },
     {
       "path": "scripts/check_release.py",
@@ -788,8 +788,8 @@
     },
     {
       "path": "site/index.html",
-      "sha256": "17cb80d43f0a31ddd4e920afe1d4844f9fe14fe7d60baa73ec037e1d078bd504",
-      "size": 8438
+      "sha256": "bb441e8ff948a1121f4e94fb2ade8ec9a8b6f66102b4f99e6b9e4c2d8c15077c",
+      "size": 8444
     },
     {
       "path": "tests/test_evidence_checks.py",

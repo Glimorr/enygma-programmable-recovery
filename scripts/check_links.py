@@ -21,7 +21,10 @@ for p in htmls:
     for href in re.findall(r"(?:href|src)=[\"']([^\"']+)[\"']",text):
         if href.startswith(("http:","https:","mailto:","#")):continue
         target=(p.parent/unquote(href.split("#",1)[0])).resolve()
-        if not target.is_relative_to(ROOT) or not target.exists():
+        source_exists=target.exists() or (
+            target.suffix==".html" and target.with_suffix(".md").is_file()
+        )
+        if not target.is_relative_to(ROOT) or not source_exists:
             errors.append(f"{p.relative_to(ROOT)}: {href}")
 if errors:
     print("RESEARCH_LINKS_FAILED",len(errors),*errors,sep="\n",file=sys.stderr)
