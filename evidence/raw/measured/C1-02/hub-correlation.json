@@ -1,0 +1,38 @@
+{
+  "candidate_count": 4,
+  "candidates": [
+    {
+      "hub_block": 10043,
+      "hub_block_hash": "0xf5519f021159d4188b936bd184e83cbe63c53b964ad277893e368b4fcb6674a5",
+      "hub_tx": "0x1e31ecb16274da1265dbc59cb6f7282b3c0b0867bd9a4647da38862a481dc22c",
+      "receipt_status": "0x1",
+      "source_log": "2026-11-04T16:38:13.984530491Z 16:38:13 2026-11-04 :232 INFO Pushed EnygmaTransferBatch to orchestrator |  messageId=\"enygma-transfer-10043-1e31ecb16274da12\"  resourceId=\"290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563\" "
+    },
+    {
+      "hub_block": 10045,
+      "hub_block_hash": "0xba1854117974aa13712fb9b90d49716d9babf0a39d2944fda172954c700aa840",
+      "hub_tx": "0x62528211f77c2a19d58f36ce2c38d6a8a4afb9314162d08ebfc2b848f9cfa588",
+      "receipt_status": "0x1",
+      "source_log": "2026-11-04T16:38:15.988715855Z 16:38:15 2026-11-04 :232 INFO Pushed EnygmaTransferBatch to orchestrator |  messageId=\"enygma-transfer-10045-62528211f77c2a19\"  resourceId=\"290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563\" "
+    },
+    {
+      "hub_block": 10050,
+      "hub_block_hash": "0x6781ab637419dd76e4e44d678bc4819cf7f04a57ef78b140a8a7283268c1ec75",
+      "hub_tx": "0x258a6209fc0ef4790aa2402d0a85d14ca555f60f814ee54508c43b9d3e0744c7",
+      "receipt_status": "0x1",
+      "source_log": "2026-11-04T16:38:20.985850091Z 16:38:20 2026-11-04 :232 INFO Pushed EnygmaTransferBatch to orchestrator |  messageId=\"enygma-transfer-10050-258a6209fc0ef479\"  resourceId=\"290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563\" "
+    },
+    {
+      "hub_block": 10053,
+      "hub_block_hash": "0xe89c2bb4fac0e2f4ce286bfe702b0006b550bfbf2e582c4959c17b124f7ddfcf",
+      "hub_tx": "0xc6b9bd988e14f5c054f8c764ba43580d5b174396a045fd742c8b3450a44b417f",
+      "receipt_status": "0x1",
+      "source_log": "2026-11-04T16:38:23.984565774Z 16:38:23 2026-11-04 :232 INFO Pushed EnygmaTransferBatch to orchestrator |  messageId=\"enygma-transfer-10053-c6b9bd988e14f5c0\"  resourceId=\"290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563\" "
+    }
+  ],
+  "chosen": null,
+  "classification": "MULTIPLE LOCAL HUB CANDIDATES; attribution not yet proven",
+  "schema": "nov-w1-hub-log-correlation/v1",
+  "source_timestamp": "2026-11-04T16:38:05.304661+00:00",
+  "trial_id": "C1-02"
+}

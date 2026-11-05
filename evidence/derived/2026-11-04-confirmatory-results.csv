@@ -1,0 +1,13 @@
+trial,sequence,condition,application_effects,destination_mints,refund_verified,source_burn_units,destination_delta_units,verified_local_receipts,historical_state_pass,actual_fault_trigger,external_consensus_witness
+C0-03,1,C0,1,1,False,100000000000000000,100000000000000000,3,True,False,False
+F2-02,2,F2,2,1,False,100000000000000000,100000000000000000,4,True,True,False
+F2-01,3,F2,2,1,False,100000000000000000,100000000000000000,4,True,True,False
+C0-02,4,C0,1,1,False,100000000000000000,100000000000000000,3,True,False,False
+C0-01,5,C0,1,1,False,100000000000000000,100000000000000000,3,True,False,False
+F1-02,6,F1,2,1,False,100000000000000000,100000000000000000,4,True,True,False
+C1-01,7,C1,0,0,True,100000000000000000,0,6,True,False,False
+F2-03,8,F2,2,1,False,100000000000000000,100000000000000000,4,True,True,False
+F1-03,9,F1,2,1,False,100000000000000000,100000000000000000,4,True,True,False
+F1-01,10,F1,2,1,False,100000000000000000,100000000000000000,4,True,True,False
+C1-02,11,C1,0,0,True,100000000000000000,0,6,True,False,False
+C1-03,12,C1,0,0,True,100000000000000000,0,6,True,False,False

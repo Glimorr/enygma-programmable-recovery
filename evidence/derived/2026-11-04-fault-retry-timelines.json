@@ -1,0 +1,84 @@
+{
+  "qualification": "LOCAL BLOCK TIMESTAMPS AND TEST FI TRIGGER CLOCK; clocks are NOT independently synchronized",
+  "schema": "nov-w1-local-timelines/v1",
+  "trials": [
+    {
+      "condition": "F2",
+      "fault_trigger_utc": "2026-11-04T16:22:14.569064+00:00",
+      "first_destination_block_time_utc": "2026-11-04T16:22:14+00:00",
+      "first_destination_tx": "0x2fc404ab27845d091d6643b85188d4baade70a1471c88ce4519e3a74cce2cd3c",
+      "on_chain_order_first_before_retry": true,
+      "retry_block_time_utc": "2026-11-04T16:22:44+00:00",
+      "retry_destination_tx": "0x728ae3d2b5cbb6c4c901659ade4e2f7096fbc28783dfcf6713be7e74514d3052",
+      "retry_minus_first_block_seconds": 30,
+      "source_block_time_utc": "2026-11-04T16:22:08+00:00",
+      "source_tx": "0x6b9d129174b031a454a8ec2ce28a2f0f1a805eed7eb817a16e11655b9386deec",
+      "trial": "F2-02"
+    },
+    {
+      "condition": "F2",
+      "fault_trigger_utc": "2026-11-04T16:26:16.549435+00:00",
+      "first_destination_block_time_utc": "2026-11-04T16:26:15+00:00",
+      "first_destination_tx": "0x9efc97b87a36b73ded7e33df4efccf6a7120fde221f4962517fd6955fa707f84",
+      "on_chain_order_first_before_retry": true,
+      "retry_block_time_utc": "2026-11-04T16:26:46+00:00",
+      "retry_destination_tx": "0xeed30b57ca937d49c4e9af5ccb732d0d62181dbacffa0b2e948c118d15e1a346",
+      "retry_minus_first_block_seconds": 31,
+      "source_block_time_utc": "2026-11-04T16:26:09+00:00",
+      "source_tx": "0x8b7f5d8dc9a73538d139a53f6774059e3770b392ed164711ed656bc9e43d3056",
+      "trial": "F2-01"
+    },
+    {
+      "condition": "F1",
+      "fault_trigger_utc": "2026-11-04T16:29:34.044044+00:00",
+      "first_destination_block_time_utc": "2026-11-04T16:29:33+00:00",
+      "first_destination_tx": "0xd641ee8d5106b5de495bb498859a1800018c336ac35141ec2ef4aaed99efc17e",
+      "on_chain_order_first_before_retry": true,
+      "retry_block_time_utc": "2026-11-04T16:30:04+00:00",
+      "retry_destination_tx": "0x24f3e18d09b789531ff4dd5cbb1e8eb2e524c9ca6b211426ba046ace01738e00",
+      "retry_minus_first_block_seconds": 31,
+      "source_block_time_utc": "2026-11-04T16:29:28+00:00",
+      "source_tx": "0xf153fa943060e98f633d8c091a549d7dbb06a63039006ba532f1202f852107c1",
+      "trial": "F1-02"
+    },
+    {
+      "condition": "F2",
+      "fault_trigger_utc": "2026-11-04T16:34:06.017634+00:00",
+      "first_destination_block_time_utc": "2026-11-04T16:34:05+00:00",
+      "first_destination_tx": "0xf57183081f40efcf4f0fb7700dd55ef6c4cf8a0f520fdace157ebd1422850b41",
+      "on_chain_order_first_before_retry": true,
+      "retry_block_time_utc": "2026-11-04T16:34:36+00:00",
+      "retry_destination_tx": "0x89b2550f9d3e9b74ef29d420ad60598af69e0c9e78cfa76bd53c1a729678e555",
+      "retry_minus_first_block_seconds": 31,
+      "source_block_time_utc": "2026-11-04T16:33:59+00:00",
+      "source_tx": "0xddb10183544931a6d6430b3986c9e60905547b8607d355db055f068819eab42e",
+      "trial": "F2-03"
+    },
+    {
+      "condition": "F1",
+      "fault_trigger_utc": "2026-11-04T16:35:30.016110+00:00",
+      "first_destination_block_time_utc": "2026-11-04T16:35:29+00:00",
+      "first_destination_tx": "0xae40a4bbf075825364e6bf090d8c14b47790c4c387666f5aefc8d3e14397e79a",
+      "on_chain_order_first_before_retry": true,
+      "retry_block_time_utc": "2026-11-04T16:35:58+00:00",
+      "retry_destination_tx": "0x8b6881ccc5f1ab4b322f33af8dc0cf134beff47ae621b62b225dca01e00c8095",
+      "retry_minus_first_block_seconds": 29,
+      "source_block_time_utc": "2026-11-04T16:35:22+00:00",
+      "source_tx": "0x578ba506080ee8daa3281e231ce31a74992e2cdda6f19616b5a52a3ae8e9b830",
+      "trial": "F1-03"
+    },
+    {
+      "condition": "F1",
+      "fault_trigger_utc": "2026-11-04T16:36:52.024142+00:00",
+      "first_destination_block_time_utc": "2026-11-04T16:36:51+00:00",
+      "first_destination_tx": "0x73b6f255805ae422099114af58e1b49ad57dec70902ab6e6b586beb393fc6716",
+      "on_chain_order_first_before_retry": true,
+      "retry_block_time_utc": "2026-11-04T16:37:21+00:00",
+      "retry_destination_tx": "0xdc3e292cddb3cf2e7c9ef2c7a05461f28a699eaffa458c808f8939b93bffc220",
+      "retry_minus_first_block_seconds": 30,
+      "source_block_time_utc": "2026-11-04T16:36:45+00:00",
+      "source_tx": "0x36a9f929905d44bb8cac2f316b901985f583f9dfe85c5ea0bf0cfd5aabc96db0",
+      "trial": "F1-01"
+    }
+  ]
+}

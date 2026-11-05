@@ -1,0 +1,17 @@
+{
+  "schema": "nov-w1-local-header-roots/v1",
+  "qualification": "Local RPC receipt/header self-consistency, NOT outside consensus attestation",
+  "captured_utc": "2026-11-04T16:35:12.340813133Z",
+  "chain_id": "1337",
+  "genesis_hash": "0x6b84a226d0225df8055a3519d3b64f2e47cfac7fa8b6ba39e3fabf2ad1e77799",
+  "block_hash": "0x549f39ce227211faf4ec0c4262601b7610c6a9e0293c83c6b7bffc0279e66d5d",
+  "block_number": 9447,
+  "transaction_count": 1,
+  "receipt_root": "0x9840b420dd8c828cdbd09170ed6ca566ab8994ce90e7685f9394e2fba8622337",
+  "calculated_receipt_root": "0x9840b420dd8c828cdbd09170ed6ca566ab8994ce90e7685f9394e2fba8622337",
+  "transactions_root": "0xd7417359102dd94a437d8dc981d6cda28f70bb7e4e58dcda6da73dc5dfe39a09",
+  "calculated_transactions_root": "0xd7417359102dd94a437d8dc981d6cda28f70bb7e4e58dcda6da73dc5dfe39a09",
+  "target_transaction_hash": "0xc520279dbd77c9f78defd0f399c82f8b26c54bc47c99306f3fcb63ad80b185d0",
+  "target_receipt_status": 1,
+  "matched": true
+}

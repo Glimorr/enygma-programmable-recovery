@@ -1,0 +1,30 @@
+{
+  "build_recipe_sha256": "bbca63e2ab48b34c8ba4fe36d7cae55292b0e66de05df0d9c13011235ff3dbcc",
+  "classification": "LOCAL BINARY SHA256 MATCH; TEST-ONLY FAULT BUILD; NOT EXTERNAL SOFTWARE ATTESTATION",
+  "runtime": {
+    "destination-fi-relayer": {
+      "bytes_equal": true,
+      "container_name": "raylsnovw1-relayer-b-1",
+      "image_id": "sha256:26c08be663329bd68145780aaf9655fe5ad69e32fc681ccf3c6f71590bf10240",
+      "local_build_file": "build/nov-relayer/relayer-fi",
+      "local_build_sha256": "e2afba6b1e4124277f65d2d8ccf7526410a10423fd12ea77a4af24c946833856",
+      "runtime_executable": "/app/service",
+      "runtime_executable_sha256": "e2afba6b1e4124277f65d2d8ccf7526410a10423fd12ea77a4af24c946833856",
+      "test_only_fault_injection": true
+    },
+    "source-relayer": {
+      "bytes_equal": true,
+      "container_name": "raylsnovw1-relayer-a-1",
+      "image_id": "sha256:bb1d3947b0cca3cd3f9869d2e11adcc783882a6b62a16ce4e44fd19ba777019d",
+      "local_build_file": "build/nov-relayer/relayer-normal",
+      "local_build_sha256": "22818e7004ede76190e345475d32b48ec40fb80c38895d1ce8d52e42b6f430c0",
+      "runtime_executable": "/app/service",
+      "runtime_executable_sha256": "22818e7004ede76190e345475d32b48ec40fb80c38895d1ce8d52e42b6f430c0",
+      "test_only_fault_injection": false
+    }
+  },
+  "schema": "novw1-binary-provenance/v1",
+  "source_revision": "b01b427de4cfc2ac66e75eba0d5070b73a3b137c",
+  "source_worktree_clean": true,
+  "utc": "2026-11-04T16:42:40.669805+00:00"
+}

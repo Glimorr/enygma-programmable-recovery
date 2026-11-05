@@ -1,0 +1,242 @@
+{
+  "classification": "GENUINE LOCALLY CONTROLLED EVM CHAINS; INSTRUMENTED TEST RELAYER; NOT PUBLIC MAINNET",
+  "conditions": {
+    "C0": {
+      "app_effects": [
+        1,
+        1,
+        1
+      ],
+      "destination_mints": [
+        1,
+        1,
+        1
+      ],
+      "n": 3,
+      "successful_refunds": 0
+    },
+    "C1": {
+      "app_effects": [
+        0,
+        0,
+        0
+      ],
+      "destination_mints": [
+        0,
+        0,
+        0
+      ],
+      "n": 3,
+      "successful_refunds": 3
+    },
+    "F1": {
+      "app_effects": [
+        2,
+        2,
+        2
+      ],
+      "destination_mints": [
+        1,
+        1,
+        1
+      ],
+      "n": 3,
+      "successful_refunds": 0
+    },
+    "F2": {
+      "app_effects": [
+        2,
+        2,
+        2
+      ],
+      "destination_mints": [
+        1,
+        1,
+        1
+      ],
+      "n": 3,
+      "successful_refunds": 0
+    }
+  },
+  "frozen_protocol_sha256": "7d46d31124bc397c39ba017b55d9ca6ccf12789dc94747e76306188dde592ac4",
+  "generated_utc": "2026-11-04T16:45:59.750523+00:00",
+  "limits": [
+    "No externally governed validator or Rayls Public Chain witness",
+    "Hub correlation candidates on C1 compensation paths are not independently attributed by contract decoding",
+    "All results from a single three-chain local environment and test-only FI-enabled destination relayer",
+    "Potential application-level replay issue; responsible disclosure review before publication"
+  ],
+  "live_requeried_local_receipts_with_matching_roots": 51,
+  "rows": [
+    {
+      "actual_fault_trigger": false,
+      "application_effects": 1,
+      "condition": "C0",
+      "destination_delta_units": 100000000000000000,
+      "destination_mints": 1,
+      "external_consensus_witness": false,
+      "historical_state_pass": true,
+      "refund_verified": false,
+      "sequence": 1,
+      "source_burn_units": 100000000000000000,
+      "trial": "C0-03",
+      "verified_local_receipts": 3
+    },
+    {
+      "actual_fault_trigger": true,
+      "application_effects": 2,
+      "condition": "F2",
+      "destination_delta_units": 100000000000000000,
+      "destination_mints": 1,
+      "external_consensus_witness": false,
+      "historical_state_pass": true,
+      "refund_verified": false,
+      "sequence": 2,
+      "source_burn_units": 100000000000000000,
+      "trial": "F2-02",
+      "verified_local_receipts": 4
+    },
+    {
+      "actual_fault_trigger": true,
+      "application_effects": 2,
+      "condition": "F2",
+      "destination_delta_units": 100000000000000000,
+      "destination_mints": 1,
+      "external_consensus_witness": false,
+      "historical_state_pass": true,
+      "refund_verified": false,
+      "sequence": 3,
+      "source_burn_units": 100000000000000000,
+      "trial": "F2-01",
+      "verified_local_receipts": 4
+    },
+    {
+      "actual_fault_trigger": false,
+      "application_effects": 1,
+      "condition": "C0",
+      "destination_delta_units": 100000000000000000,
+      "destination_mints": 1,
+      "external_consensus_witness": false,
+      "historical_state_pass": true,
+      "refund_verified": false,
+      "sequence": 4,
+      "source_burn_units": 100000000000000000,
+      "trial": "C0-02",
+      "verified_local_receipts": 3
+    },
+    {
+      "actual_fault_trigger": false,
+      "application_effects": 1,
+      "condition": "C0",
+      "destination_delta_units": 100000000000000000,
+      "destination_mints": 1,
+      "external_consensus_witness": false,
+      "historical_state_pass": true,
+      "refund_verified": false,
+      "sequence": 5,
+      "source_burn_units": 100000000000000000,
+      "trial": "C0-01",
+      "verified_local_receipts": 3
+    },
+    {
+      "actual_fault_trigger": true,
+      "application_effects": 2,
+      "condition": "F1",
+      "destination_delta_units": 100000000000000000,
+      "destination_mints": 1,
+      "external_consensus_witness": false,
+      "historical_state_pass": true,
+      "refund_verified": false,
+      "sequence": 6,
+      "source_burn_units": 100000000000000000,
+      "trial": "F1-02",
+      "verified_local_receipts": 4
+    },
+    {
+      "actual_fault_trigger": false,
+      "application_effects": 0,
+      "condition": "C1",
+      "destination_delta_units": 0,
+      "destination_mints": 0,
+      "external_consensus_witness": false,
+      "historical_state_pass": true,
+      "refund_verified": true,
+      "sequence": 7,
+      "source_burn_units": 100000000000000000,
+      "trial": "C1-01",
+      "verified_local_receipts": 6
+    },
+    {
+      "actual_fault_trigger": true,
+      "application_effects": 2,
+      "condition": "F2",
+      "destination_delta_units": 100000000000000000,
+      "destination_mints": 1,
+      "external_consensus_witness": false,
+      "historical_state_pass": true,
+      "refund_verified": false,
+      "sequence": 8,
+      "source_burn_units": 100000000000000000,
+      "trial": "F2-03",
+      "verified_local_receipts": 4
+    },
+    {
+      "actual_fault_trigger": true,
+      "application_effects": 2,
+      "condition": "F1",
+      "destination_delta_units": 100000000000000000,
+      "destination_mints": 1,
+      "external_consensus_witness": false,
+      "historical_state_pass": true,
+      "refund_verified": false,
+      "sequence": 9,
+      "source_burn_units": 100000000000000000,
+      "trial": "F1-03",
+      "verified_local_receipts": 4
+    },
+    {
+      "actual_fault_trigger": true,
+      "application_effects": 2,
+      "condition": "F1",
+      "destination_delta_units": 100000000000000000,
+      "destination_mints": 1,
+      "external_consensus_witness": false,
+      "historical_state_pass": true,
+      "refund_verified": false,
+      "sequence": 10,
+      "source_burn_units": 100000000000000000,
+      "trial": "F1-01",
+      "verified_local_receipts": 4
+    },
+    {
+      "actual_fault_trigger": false,
+      "application_effects": 0,
+      "condition": "C1",
+      "destination_delta_units": 0,
+      "destination_mints": 0,
+      "external_consensus_witness": false,
+      "historical_state_pass": true,
+      "refund_verified": true,
+      "sequence": 11,
+      "source_burn_units": 100000000000000000,
+      "trial": "C1-02",
+      "verified_local_receipts": 6
+    },
+    {
+      "actual_fault_trigger": false,
+      "application_effects": 0,
+      "condition": "C1",
+      "destination_delta_units": 0,
+      "destination_mints": 0,
+      "external_consensus_witness": false,
+      "historical_state_pass": true,
+      "refund_verified": true,
+      "sequence": 12,
+      "source_burn_units": 100000000000000000,
+      "trial": "C1-03",
+      "verified_local_receipts": 6
+    }
+  ],
+  "schema": "nov-w1-measured-local-results/v1",
+  "trial_count": 12
+}

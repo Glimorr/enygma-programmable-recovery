@@ -1,0 +1,39 @@
+{
+  "all_rejected": true,
+  "cases": {
+    "changed_retry_calldata": {
+      "falsified_copy_rejected": true,
+      "rejection_reasons": [
+        "retry program calldata differs from initial"
+      ]
+    },
+    "deleted_retry_application_event": {
+      "falsified_copy_rejected": true,
+      "rejection_reasons": [
+        "successful programmable destination tx without exactly one observer effect"
+      ]
+    },
+    "falsified_application_counter": {
+      "falsified_copy_rejected": true,
+      "rejection_reasons": [
+        "observer counter sequence inconsistent"
+      ]
+    },
+    "falsified_duplicate_mint": {
+      "falsified_copy_rejected": true,
+      "rejection_reasons": [
+        "expected exactly one destination settlement mint",
+        "repeated program must show one protected settlement mint"
+      ]
+    },
+    "source_burn_amount_modified": {
+      "falsified_copy_rejected": true,
+      "rejection_reasons": [
+        "source requires exactly one authorized burn event"
+      ]
+    }
+  },
+  "classification": "ADVERSARIAL MUTATIONS OF EVIDENCE COPIES; NOT NEW ON-CHAIN TRIALS",
+  "original_passed": true,
+  "schema": "nov-w1-verifier-sensitivity/v1"
+}

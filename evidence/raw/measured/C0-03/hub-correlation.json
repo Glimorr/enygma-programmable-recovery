@@ -1,0 +1,30 @@
+{
+  "candidate_count": 2,
+  "candidates": [
+    {
+      "hub_block": 8949,
+      "hub_block_hash": "0x64dab092e354a31e2c70dbf13db318f5b3bd6f8a705bf6ae39711d2eafa2fc5d",
+      "hub_tx": "0xcb50661100fff48ae5e4cafcb50934d718a807129c1a33a541065a28e284bf73",
+      "receipt_status": "0x1",
+      "source_log": "2026-11-04T16:19:59.059714960Z 16:19:59 2026-11-04 :232 INFO Pushed EnygmaTransferBatch to orchestrator |  messageId=\"enygma-transfer-8949-cb50661100fff48a\"  resourceId=\"290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563\" "
+    },
+    {
+      "hub_block": 8951,
+      "hub_block_hash": "0xe559ce4d583735e3a2cdfa31faf9d8de4ca7acaa3ce2d1dced6dee084a2a27e8",
+      "hub_tx": "0x385594a3f5532f51370d3b29fb7e9e8626d8ebdc691a2cfb43faa52d3563fb7c",
+      "receipt_status": "0x1",
+      "source_log": "2026-11-04T16:20:01.055538024Z 16:20:01 2026-11-04 :232 INFO Pushed EnygmaTransferBatch to orchestrator |  messageId=\"enygma-transfer-8951-385594a3f5532f51\"  resourceId=\"290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563\" "
+    }
+  ],
+  "chosen": {
+    "hub_block": 8949,
+    "hub_block_hash": "0x64dab092e354a31e2c70dbf13db318f5b3bd6f8a705bf6ae39711d2eafa2fc5d",
+    "hub_tx": "0xcb50661100fff48ae5e4cafcb50934d718a807129c1a33a541065a28e284bf73",
+    "receipt_status": "0x1",
+    "source_log": "2026-11-04T16:19:59.059714960Z 16:19:59 2026-11-04 :232 INFO Pushed EnygmaTransferBatch to orchestrator |  messageId=\"enygma-transfer-8949-cb50661100fff48a\"  resourceId=\"290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563\" "
+  },
+  "classification": "LOCAL PNH RECEIPT MATCHED TO RELAYER MESSAGE ID; NOT AN EXTERNAL CONSENSUS PROOF",
+  "schema": "nov-w1-hub-log-correlation/v1",
+  "source_timestamp": "2026-11-04T16:19:51Z",
+  "trial_id": "C0-03"
+}

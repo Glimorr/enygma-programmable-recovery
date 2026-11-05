@@ -1,0 +1,134 @@
+name: Enygma Recovery — Evidence and Code Verification
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  public-evidence:
+    name: Public evidence integrity and financial state
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Recheck all published local-chain receipts and historical state
+        run: PYTHONDONTWRITEBYTECODE=1 python3 -B scripts/check_evidence.py
+      - name: Verify all public files and disclosure disposition
+        run: PYTHONDONTWRITEBYTECODE=1 python3 -B scripts/check_release.py
+      - name: Detect altered effects, corrupted receipt roots and missing files
+        run: PYTHONDONTWRITEBYTECODE=1 python3 -B -m unittest discover -s tests -v
+      - name: Check cited files and public presentation links
+        run: PYTHONDONTWRITEBYTECODE=1 python3 -B scripts/check_links.py
+      - name: Check the public testnet commitment against the sealed manifest
+        run: PYTHONDONTWRITEBYTECODE=1 python3 -B scripts/verify_public_commitment.py
+      - name: Regenerate measured research figures and compare bytes
+        run: PYTHONDONTWRITEBYTECODE=1 python3 -B scripts/render_research_figures.py --check
+  external-contract-probe:
+    name: Contract-level recovery behavior
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: raylsnetwork/rayls-sovereign-contracts
+          ref: ed8863885c8ed5d5d317d47a34c063907192687a
+          path: upstream/contracts
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: stable
+      - name: Prepare pinned Solidity dependencies
+        working-directory: upstream/contracts
+        run: npm ci --no-audit --no-fund
+      - name: Copy independent research probe (new test, no upstream source changes)
+        run: |
+          mkdir -p upstream/contracts/src/test/enygma-recovery
+          cp lab/EnygmaRecoveryProbe.t.sol upstream/contracts/src/test/enygma-recovery/EnygmaRecoveryProbe.t.sol
+          sha256sum lab/EnygmaRecoveryProbe.t.sol upstream/contracts/src/test/enygma-recovery/EnygmaRecoveryProbe.t.sol
+      - name: Test token and programmable executor recovery behavior
+        working-directory: upstream/contracts
+        run: |
+          forge --version
+          forge test --match-path src/test/enygma-recovery/EnygmaRecoveryProbe.t.sol -vv
+      - name: Report scope of checks
+        run: |
+          echo 'Six Forge tests rerun pinned official contracts in a separate hosted EVM simulator.'
+          echo 'This is an independent CONTRACT MECHANISM test, not real relayer retry or full Enygma network.'
+
+  external-relayer-recovery:
+    name: Relayer recovery behavior
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout research
+        uses: actions/checkout@v4
+      - name: Checkout pinned Rayls relayer source
+        uses: actions/checkout@v4
+        with:
+          repository: raylsnetwork/rayls-sovereign-relayer
+          ref: b01b427de4cfc2ac66e75eba0d5070b73a3b137c
+          path: upstream/relayer
+          persist-credentials: false
+      - name: Install pinned Go toolchain
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.26.4'
+          cache: true
+          cache-dependency-path: upstream/relayer/go.sum
+      - name: Add separate receiver recovery test to fresh official source
+        run: |
+          cp lab/receiver_recovery_test.go upstream/relayer/enygma/handler/receiver_recovery_test.go
+          sha256sum lab/receiver_recovery_test.go upstream/relayer/enygma/handler/receiver_recovery_test.go
+      - name: Test pending recovery and duplicate-delivery decision
+        working-directory: upstream/relayer
+        env:
+          GOMAXPROCS: '2'
+          GOFLAGS: '-p=2'
+        run: |
+          go version
+          go test -timeout 180s -count=1 -run '^TestEnygmaReceiverPendingResubmitsAfterConfirmationFailure$' -v ./enygma/handler
+      - name: Explain test boundary
+        run: |
+          echo 'This is an independently hosted native receiver mock test against pinned Rayls code.'
+          echo 'It does not launch the multi-chain Hub/CTS/proofs network or attest its historic receipts.'
+
+  external-relayer-binary-rebuild:
+    name: Independently rebuild both relayer binaries
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout pinned official Rayls relayer
+        uses: actions/checkout@v4
+        with:
+          repository: raylsnetwork/rayls-sovereign-relayer
+          ref: b01b427de4cfc2ac66e75eba0d5070b73a3b137c
+          persist-credentials: false
+      - name: Install pinned Go toolchain
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.26.4'
+          cache: true
+      - name: Build in the exact original Go 1.26.4 Bookworm toolchain image
+        run: |
+          mkdir -p "$RUNNER_TEMP/enygma-bin"
+          docker run --rm             --cpus 2 --memory 6g --pids-limit 512             -v "$PWD:/app:ro"             -v "$RUNNER_TEMP/enygma-bin:/results"             -w /app             -e GOTOOLCHAIN=local -e GOMAXPROCS=2 -e GOFLAGS=-p=2             golang:1.26.4-bookworm /bin/bash -c '
+              set -euo pipefail
+              CGO_ENABLED=0 go build -trimpath -o /results/relayer-normal ./private-relayer/cmd/main.go
+              CGO_ENABLED=0 go build -trimpath -tags faultinjection -o /results/relayer-fi ./private-relayer/cmd/main.go
+              go version -m /results/relayer-normal | tail -12
+              go version -m /results/relayer-fi | tail -12
+              sha256sum /results/relayer-normal /results/relayer-fi
+            '
+          echo 'Verify against the authentic local-network executable fingerprints:'
+          echo '22818e7004ede76190e345475d32b48ec40fb80c38895d1ce8d52e42b6f430c0  '"$RUNNER_TEMP"'/enygma-bin/relayer-normal' | sha256sum --check
+          echo 'e2afba6b1e4124277f65d2d8ccf7526410a10423fd12ea77a4af24c946833856  '"$RUNNER_TEMP"'/enygma-bin/relayer-fi' | sha256sum --check
+      - name: Explain provenance claim
+        run: |
+          echo 'Passing this job proves reproducibility of two SOURCE-TO-EXECUTABLE hashes on a separate hosted machine.'
+          echo 'This does not claim to reproduce an independent complete Hub/CTS/private-network runtime.'

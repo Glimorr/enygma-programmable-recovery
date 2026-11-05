@@ -1,0 +1,18 @@
+{
+  "application_effect_count": 0,
+  "classification": "LOCAL SOURCE RPC OBSERVATION; NOT EXTERNAL CONSENSUS PROOF",
+  "final_destination_balance": 2900000000000000000,
+  "final_source_balance": 8100000000000000000,
+  "initial_destination_balance": 2900000000000000000,
+  "initial_source_balance": 8100000000000000000,
+  "mint_zero_to_user_topic": [
+    "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
+    "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "0x000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266"
+  ],
+  "refund_amount_base_units": 100000000000000000,
+  "refund_block": "0x45a6",
+  "refund_tx_hash": "0x29484515597fa27c58d07c51767fc416d0cd71edc0b1fbba7c3c18c597d024b0",
+  "schema": "novw1-C1-refund-correlation/v1",
+  "trial": "C1-03"
+}

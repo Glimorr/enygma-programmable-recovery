@@ -1,0 +1,38 @@
+{
+  "candidate_count": 4,
+  "candidates": [
+    {
+      "hub_block": 9605,
+      "hub_block_hash": "0xabd447ae42e3b88ea81a961e77e5ddc5daa091b07786e2e6241afe4c2d1281e8",
+      "hub_tx": "0x4050963b4c9b42622532cf093cb80558559ad4f9587189d1a2d30f14951b7b36",
+      "receipt_status": "0x1",
+      "source_log": "2026-11-04T16:30:56.028924876Z 16:30:56 2026-11-04 :232 INFO Pushed EnygmaTransferBatch to orchestrator |  messageId=\"enygma-transfer-9605-4050963b4c9b4262\"  resourceId=\"290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563\" "
+    },
+    {
+      "hub_block": 9607,
+      "hub_block_hash": "0x240a8504fab781e89caa2d3f5d92209202a9d5dd745d98572cde1aa94881935c",
+      "hub_tx": "0xa4a7f62abd2bbff248eb0980a2c2f94088f688cf5aecbc0975f865a8a29e036e",
+      "receipt_status": "0x1",
+      "source_log": "2026-11-04T16:30:58.014501670Z 16:30:58 2026-11-04 :232 INFO Pushed EnygmaTransferBatch to orchestrator |  messageId=\"enygma-transfer-9607-a4a7f62abd2bbff2\"  resourceId=\"290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563\" "
+    },
+    {
+      "hub_block": 9612,
+      "hub_block_hash": "0x154e74506e164a8ea4d19e8f1a27e322501d80cabffc63e52b6e35e37c7975c7",
+      "hub_tx": "0x9ffacb4a09d467d68aa7220d613b0af81f803b75cb0b0e78e9abc3fccee12dd6",
+      "receipt_status": "0x1",
+      "source_log": "2026-11-04T16:31:03.014675870Z 16:31:03 2026-11-04 :232 INFO Pushed EnygmaTransferBatch to orchestrator |  messageId=\"enygma-transfer-9612-9ffacb4a09d467d6\"  resourceId=\"290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563\" "
+    },
+    {
+      "hub_block": 9615,
+      "hub_block_hash": "0x1415b41d860f01a75fa6d0407c03e86aa66c50d95ed671a82b515d59c72dede6",
+      "hub_tx": "0xc8a5dfd830d696c4d60df687a287326dc70a3efad0afa14b850f7f3c726a2a92",
+      "receipt_status": "0x1",
+      "source_log": "2026-11-04T16:31:06.014688921Z 16:31:06 2026-11-04 :232 INFO Pushed EnygmaTransferBatch to orchestrator |  messageId=\"enygma-transfer-9615-c8a5dfd830d696c4\"  resourceId=\"290decd9548b62a8d60345a988386fc84ba6bc95484008f6362f93160ef3e563\" "
+    }
+  ],
+  "chosen": null,
+  "classification": "MULTIPLE LOCAL HUB CANDIDATES; attribution not yet proven",
+  "schema": "nov-w1-hub-log-correlation/v1",
+  "source_timestamp": "2026-11-04T16:30:47.428509+00:00",
+  "trial_id": "C1-01"
+}

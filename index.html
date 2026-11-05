@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Can a Cross-Chain Payment Settle Once but Execute an Application Twice? — Rayls Enygma</title>
+<meta name="description" content="A controlled technical study of settlement minting and programmable application execution after Enygma relayer recovery.">
+<style>
+:root{--ink:#172536;--mute:#57687c;--line:#d8e0e7;--paper:#fff;--soft:#f5f7f9;--accent:#245e82}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.72 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:940px;margin:0 auto;padding:50px 26px 84px}
+header{padding-bottom:38px;border-bottom:1px solid var(--line)}
+header p{font-size:18px;max-width:740px;color:var(--mute)}
+h1{font:500 clamp(38px,6vw,66px)/1.13 Georgia,serif;letter-spacing:-.03em;margin:16px 0 21px}
+h2{font:500 34px/1.25 Georgia,serif;letter-spacing:-.02em;margin:62px 0 16px}
+h3{font:600 18px/1.4 system-ui;margin:30px 0 8px}
+nav{display:flex;gap:24px;flex-wrap:wrap;padding:18px 0;border-bottom:1px solid var(--line)}
+a{color:var(--accent);text-underline-offset:3px}nav a{font-size:14px;text-decoration:none}
+p{max-width:800px}strong{font-weight:650}
+.eyebrow{color:var(--mute);text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:650}
+.thesis{font-size:20px;color:var(--ink);max-width:780px}
+table{width:100%;border-collapse:collapse;font-size:15px;margin:25px 0 16px}
+thead th{font-weight:650;text-align:left;background:var(--soft);border-bottom:2px solid var(--ink)}
+td,th{border-bottom:1px solid var(--line);padding:13px 15px;vertical-align:top}
+figure{margin:34px 0}figure img{width:100%;height:auto;border:1px solid var(--line)}
+figcaption{font-size:13px;color:var(--mute);padding:12px 4px}
+.note{border-left:2px solid var(--accent);padding:3px 0 3px 18px;color:var(--mute);margin:24px 0}
+small,footer{color:var(--mute);font-size:13px}
+footer{border-top:1px solid var(--line);margin-top:56px;padding-top:24px}
+code{font:13px/1.5 ui-monospace,Consolas,monospace;overflow-wrap:anywhere}
+ul{padding-left:25px}
+@media(max-width:620px){main{padding:26px 16px 54px}table{font-size:13px}td,th{padding:9px 8px}h2{font-size:29px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="eyebrow">Independent technical research · Rayls Enygma</div>
+<h1>Can a Cross-Chain Payment Settle Once but Execute an Application Twice?</h1>
+<p>Separating settlement minting from application execution when destination processing resumes after an interrupted completion step.</p>
+<p class="note">Research status: controlled local-network findings. Detailed fault-controller instructions remain in a private research archive; local receipts and financial-state evidence are published for inspection.</p>
+</header>
+<nav aria-label="Page navigation">
+<a href="#question">Research question</a><a href="#method">Experimental design</a><a href="#results">Observations</a><a href="#verification">Verification</a><a href="#limits">Limits</a>
+</nav>
+<section id="question">
+<h2>Research question</h2>
+<p class="thesis">Does a destination transfer’s protected token mint also imply exactly-once execution of its attached application call after the relayer recovers?</p>
+<p>Enygma carries approved programmable steps to the destination Sovereign chain. The mint and steps are atomic within a transaction, but the relayer and Hub use separate transactions and messages. This study tests whether the settlement and application effects remain coupled across an interrupted completion boundary.</p>
+</section>
+<section id="method">
+<h2>Experimental design</h2>
+<p>Two Sovereign chains, a Private Network Hub, proof services and relayers ran in an isolated local Docker environment. Each measured payment transferred 0.1 token and used a new logical payment identifier. A local template-approved observer contract counted application invocations separately from token mints.</p>
+<table>
+<thead><tr><th>Condition</th><th>Question</th><th>Trials</th></tr></thead>
+<tbody>
+<tr><td>C0 · Normal delivery</td><td>Does a completed payment mint and execute once?</td><td>3</td></tr>
+<tr><td>C1 · Rejected application</td><td>Does compensation return the burned value?</td><td>3</td></tr>
+<tr><td>F1 · Interrupted processing</td><td>What changes when processing resumes after a destination dispatch?</td><td>3</td></tr>
+<tr><td>F2 · Interrupted completion</td><td>What changes when acknowledgment is interrupted?</td><td>3</td></tr>
+</tbody>
+</table>
+<p>The receiver used a test-only fault-injection build at the two chosen boundaries. The trial schedule was fixed locally before the measurements; no external pre-experiment timestamp is claimed.</p>
+</section>
+<section id="results">
+<h2>Observations</h2>
+<p>Normal transfers minted once and executed once. Three deliberately rejected applications were fully refunded without a destination application effect. In all six interrupted trials, the destination minted once while the approved application call produced two effects.</p>
+<figure>
+<img src="figures/enygma-application-effects.svg" alt="Bar chart comparing settlement mints and application executions across four three-trial conditions">
+<figcaption>Three trials per condition. Counts are derived from the preserved local-chain results, not inferred from arbitrary examples.</figcaption>
+</figure>
+<figure>
+<img src="figures/enygma-retry-intervals.svg" alt="Six measured retry intervals between first and second destination executions, 29 to 31 seconds">
+<figcaption>Time between local destination block timestamps for first execution and retry. Block timestamps are not external wall-clock attestations.</figcaption>
+</figure>
+<p>The observed result is <strong>settlement minted once, application executed twice</strong> under the controlled retry conditions. It is not evidence of double minting or an exploit on a production network.</p>
+</section>
+<section id="verification">
+<h2>Verification</h2>
+<p>The original archive includes twelve historical accounting checks, fifty-one local receipt/root witnesses, six recorded one-shot interventions, three mined source refunds and five rejected copies of intentionally falsified evidence. Original file integrity is covered by a SHA-256 manifest of 289 artifacts.</p>
+<p>GitHub-hosted runners separately re-executed the evidence verifier, official-contract Solidity tests, a native relayer receiver test and a deterministic rebuild of the normal and instrumented relayer binaries. The rebuilt executable hashes matched those used in the local experiment.</p>
+<p>Research report: <a href="docs/Research.md">Enygma Programmable Transfer Recovery</a>. Evidence inventory: <a href="docs/Evidence-Register.md">Evidence Register</a>. Scope of external computation: <a href="docs/Verification-Boundaries.md">Independent Verification Boundaries</a>.</p>
+</section>
+<section id="limits">
+<h2>Limits</h2>
+<ul>
+<li>The original chain observations come from one operator-controlled environment, not public Rayls consensus.</li>
+<li>The destination receiver used a test-only fault-injection build; production applicability was not demonstrated.</li>
+<li>Externally hosted tests verify contracts, a receiver recovery path and exact executable builds, not a separately operated full three-chain network.</li>
+<li>The sealed evidence manifest was committed to <a href="https://testnet-explorer.rayls.com/tx/0x397f1979a00ad430f1b925c62d3b14ced83eb294ebc775269865a38d87e855db" target="_blank" rel="noopener noreferrer">Rayls Public Testnet, block 22,398,118</a>. This publicly timestamps the archive digest after the experiment; it cannot prove private settlement or retroactively prove preregistration.</li>
+<li>Application-level logical-ID guarding is a possible design control. The protocol’s intended cross-retry guarantee remains a specification question.</li>
+</ul>
+</section>
+<footer>
+<p>Source: <a href="https://docs.rayls.com/docs/how-enygma-works">Rayls Enygma documentation</a> · <a href="https://github.com/raylsnetwork/rayls-sovereign-contracts">Sovereign contracts</a> · <a href="https://github.com/raylsnetwork/rayls-sovereign-relayer">Sovereign relayer</a></p>
+<p>Published independent research. The public-chain transaction commits an evidence-manifest hash after the experiment; it is not a private Enygma settlement receipt.</p>
+</footer>
+</main>
+</body>
+</html>

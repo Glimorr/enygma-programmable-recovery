@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="690" viewBox="0 0 1100 690" role="img">
+<rect width="1100" height="690" fill="#ffffff"/>
+<text x="58" y="68" font-size="30" font-weight="650" fill="#172536" text-anchor="start" font-family="Arial,Helvetica,sans-serif">Time between destination executions</text>
+<text x="58" y="100" font-size="16" font-weight="400" fill="#637285" text-anchor="start" font-family="Arial,Helvetica,sans-serif">Difference between local destination block timestamps for the first and retry transaction</text>
+<line x1="345" y1="165" x2="345" y2="516" stroke="#d7dee5" stroke-width="1"/>
+<line x1="345" y1="517" x2="990" y2="517" stroke="#172536" stroke-width="1.5"/>
+<line x1="345.0" y1="165" x2="345.0" y2="517" stroke="#d7dee5" stroke-width="0.8"/>
+<text x="345.0" y="545" font-size="15" font-weight="400" fill="#637285" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">25</text>
+<text x="409.5" y="545" font-size="15" font-weight="400" fill="#637285" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">26</text>
+<line x1="474.0" y1="165" x2="474.0" y2="517" stroke="#d7dee5" stroke-width="0.8"/>
+<text x="474.0" y="545" font-size="15" font-weight="400" fill="#637285" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">27</text>
+<text x="538.5" y="545" font-size="15" font-weight="400" fill="#637285" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">28</text>
+<line x1="603.0" y1="165" x2="603.0" y2="517" stroke="#d7dee5" stroke-width="0.8"/>
+<text x="603.0" y="545" font-size="15" font-weight="400" fill="#637285" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">29</text>
+<text x="667.5" y="545" font-size="15" font-weight="400" fill="#637285" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">30</text>
+<line x1="732.0" y1="165" x2="732.0" y2="517" stroke="#d7dee5" stroke-width="0.8"/>
+<text x="732.0" y="545" font-size="15" font-weight="400" fill="#637285" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">31</text>
+<text x="796.5" y="545" font-size="15" font-weight="400" fill="#637285" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">32</text>
+<line x1="861.0" y1="165" x2="861.0" y2="517" stroke="#d7dee5" stroke-width="0.8"/>
+<text x="861.0" y="545" font-size="15" font-weight="400" fill="#637285" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">33</text>
+<text x="925.5" y="545" font-size="15" font-weight="400" fill="#637285" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">34</text>
+<line x1="990.0" y1="165" x2="990.0" y2="517" stroke="#d7dee5" stroke-width="0.8"/>
+<text x="990.0" y="545" font-size="15" font-weight="400" fill="#637285" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">35</text>
+<text x="667" y="578" font-size="17" font-weight="500" fill="#172536" text-anchor="middle" font-family="Arial,Helvetica,sans-serif">Elapsed seconds</text>
+<text x="58" y="211" font-size="17" font-weight="600" fill="#172536" text-anchor="start" font-family="Arial,Helvetica,sans-serif">F1-01</text>
+<line x1="345" y1="205" x2="990" y2="205" stroke="#eef2f5" stroke-width="1"/>
+<circle cx="667.5" cy="205" r="11" fill="#33779b"/>
+<text x="686.5" y="211" font-size="17" font-weight="600" fill="#172536" text-anchor="start" font-family="Arial,Helvetica,sans-serif">30 s</text>
+<text x="58" y="265" font-size="17" font-weight="600" fill="#172536" text-anchor="start" font-family="Arial,Helvetica,sans-serif">F1-02</text>
+<line x1="345" y1="259" x2="990" y2="259" stroke="#eef2f5" stroke-width="1"/>
+<circle cx="732.0" cy="259" r="11" fill="#33779b"/>
+<text x="751.0" y="265" font-size="17" font-weight="600" fill="#172536" text-anchor="start" font-family="Arial,Helvetica,sans-serif">31 s</text>
+<text x="58" y="319" font-size="17" font-weight="600" fill="#172536" text-anchor="start" font-family="Arial,Helvetica,sans-serif">F1-03</text>
+<line x1="345" y1="313" x2="990" y2="313" stroke="#eef2f5" stroke-width="1"/>
+<circle cx="603.0" cy="313" r="11" fill="#33779b"/>
+<text x="622.0" y="319" font-size="17" font-weight="600" fill="#172536" text-anchor="start" font-family="Arial,Helvetica,sans-serif">29 s</text>
+<text x="58" y="373" font-size="17" font-weight="600" fill="#172536" text-anchor="start" font-family="Arial,Helvetica,sans-serif">F2-01</text>
+<line x1="345" y1="367" x2="990" y2="367" stroke="#eef2f5" stroke-width="1"/>
+<circle cx="732.0" cy="367" r="11" fill="#bf752e"/>
+<text x="751.0" y="373" font-size="17" font-weight="600" fill="#172536" text-anchor="start" font-family="Arial,Helvetica,sans-serif">31 s</text>
+<text x="58" y="427" font-size="17" font-weight="600" fill="#172536" text-anchor="start" font-family="Arial,Helvetica,sans-serif">F2-02</text>
+<line x1="345" y1="421" x2="990" y2="421" stroke="#eef2f5" stroke-width="1"/>
+<circle cx="667.5" cy="421" r="11" fill="#bf752e"/>
+<text x="686.5" y="427" font-size="17" font-weight="600" fill="#172536" text-anchor="start" font-family="Arial,Helvetica,sans-serif">30 s</text>
+<text x="58" y="481" font-size="17" font-weight="600" fill="#172536" text-anchor="start" font-family="Arial,Helvetica,sans-serif">F2-03</text>
+<line x1="345" y1="475" x2="990" y2="475" stroke="#eef2f5" stroke-width="1"/>
+<circle cx="732.0" cy="475" r="11" fill="#bf752e"/>
+<text x="751.0" y="481" font-size="17" font-weight="600" fill="#172536" text-anchor="start" font-family="Arial,Helvetica,sans-serif">31 s</text>
+<text x="58" y="634" font-size="15" font-weight="500" fill="#172536" text-anchor="start" font-family="Arial,Helvetica,sans-serif">F1 = interruption after dispatch; F2 = interruption before completion.</text>
+<text x="58" y="657" font-size="13" font-weight="400" fill="#637285" text-anchor="start" font-family="Arial,Helvetica,sans-serif">These are block timestamp differences on one local network, not independent wall-clock measurements.</text>
+</svg>

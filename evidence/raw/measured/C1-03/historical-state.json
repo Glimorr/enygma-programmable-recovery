@@ -1,0 +1,25 @@
+{
+  "classification": "HISTORICAL LOCAL RPC STATE; NOT OUTSIDE VALIDATOR CONSENSUS",
+  "condition": "C1",
+  "destination": [],
+  "errors": [],
+  "passed": true,
+  "refund": {
+    "balance_after": 8100000000000000000,
+    "balance_before": 8000000000000000000,
+    "block": 17830,
+    "supply_after": 8100000000000000000,
+    "supply_before": 8000000000000000000,
+    "tx": "0x29484515597fa27c58d07c51767fc416d0cd71edc0b1fbba7c3c18c597d024b0"
+  },
+  "schema": "nov-w1-historical-state/v1",
+  "source": {
+    "balance_after": 8000000000000000000,
+    "balance_before": 8100000000000000000,
+    "block": 17808,
+    "supply_after": 8000000000000000000,
+    "supply_before": 8100000000000000000,
+    "tx": "0x452f57f90d2c5f5184bfe0b9db4116dad74b4f549f70cf1c6dcbb89757b823b3"
+  },
+  "trial_id": "C1-03"
+}

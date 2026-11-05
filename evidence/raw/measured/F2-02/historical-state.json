@@ -1,0 +1,39 @@
+{
+  "classification": "HISTORICAL LOCAL RPC STATE; NOT OUTSIDE VALIDATOR CONSENSUS",
+  "condition": "F2",
+  "destination": [
+    {
+      "block": 15771,
+      "observer_after": 1,
+      "observer_before": 0,
+      "token_balance_after": 2200000000000000000,
+      "token_balance_before": 2100000000000000000,
+      "token_supply_after": 2200000000000000000,
+      "token_supply_before": 2100000000000000000,
+      "tx": "0x2fc404ab27845d091d6643b85188d4baade70a1471c88ce4519e3a74cce2cd3c"
+    },
+    {
+      "block": 15817,
+      "observer_after": 2,
+      "observer_before": 1,
+      "token_balance_after": 2200000000000000000,
+      "token_balance_before": 2200000000000000000,
+      "token_supply_after": 2200000000000000000,
+      "token_supply_before": 2200000000000000000,
+      "tx": "0x728ae3d2b5cbb6c4c901659ade4e2f7096fbc28783dfcf6713be7e74514d3052"
+    }
+  ],
+  "errors": [],
+  "passed": true,
+  "refund": null,
+  "schema": "nov-w1-historical-state/v1",
+  "source": {
+    "balance_after": 8800000000000000000,
+    "balance_before": 8900000000000000000,
+    "block": 15830,
+    "supply_after": 8800000000000000000,
+    "supply_before": 8900000000000000000,
+    "tx": "0x6b9d129174b031a454a8ec2ce28a2f0f1a805eed7eb817a16e11655b9386deec"
+  },
+  "trial_id": "F2-02"
+}
