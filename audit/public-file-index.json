@@ -88,13 +88,13 @@
     },
     {
       "path": "docs/Research.md",
-      "sha256": "79ee493027b5570e10772038e7d27863e89474511367e3e25ad23366adec5950",
-      "size": 8566
+      "sha256": "9e4b91d074d76e10c772db82833dd2d35c679bcc5d50fa28b57c509d8510a7bd",
+      "size": 8694
     },
     {
       "path": "docs/Verification-Boundaries.md",
-      "sha256": "621d8013a9658ad5a6e592ce531828fa85b0e075e65f9633af733f86494c49b6",
-      "size": 5265
+      "sha256": "eb105f08937aac3f6d2cb10281c436788fd164e35c88958ec7afde345e21403b",
+      "size": 5389
     },
     {
       "path": "evidence/derived/2026-11-04-confirmatory-results.csv",
