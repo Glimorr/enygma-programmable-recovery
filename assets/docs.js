@@ -4,6 +4,27 @@
 (() => {
   'use strict';
 
+  // Strip incoming marketing parameters from the visible Pages URL without
+  // removing functional query parameters or changing the research content.
+  try {
+    const cleanUrl = new URL(window.location.href);
+    const marketingKeys = /^(?:utm_[a-z0-9_-]+|gclid|fbclid|mc_cid|mc_eid|ref_src|referrer)$/i;
+    let cleaned = false;
+    for (const key of [...cleanUrl.searchParams.keys()]) {
+      if (!marketingKeys.test(key)) continue;
+      cleanUrl.searchParams.delete(key);
+      cleaned = true;
+    }
+    if (cleaned) {
+      window.history.replaceState(
+        window.history.state, '',
+        cleanUrl.pathname + cleanUrl.search + cleanUrl.hash
+      );
+    }
+  } catch (_) {
+    // Keep the document readable even if URL editing is disallowed.
+  }
+
   const $ = (s, root = document) => root.querySelector(s);
   const all = (s, root = document) => Array.from(root.querySelectorAll(s));
   const content = $('#research-content');

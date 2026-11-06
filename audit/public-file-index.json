@@ -18,8 +18,8 @@
     },
     {
       "path": "_layouts/research-page.html",
-      "sha256": "dabfaba31980800aa6950975b41c7f346835da0f57a5359028d34520922736a7",
-      "size": 14537
+      "size": 14599,
+      "sha256": "51e3712168763b68ef4387c007e5be463a133fbbbcc3c074897641af27604661"
     },
     {
       "path": "assets/docs.css",
@@ -28,8 +28,8 @@
     },
     {
       "path": "assets/docs.js",
-      "sha256": "a8217b01b26c3e0c1b22488dc9ae439db71dc4ce88ce0a1eee9be0c8b8fa4d78",
-      "size": 13804
+      "size": 14564,
+      "sha256": "6be359eedf5959b88872f3c26d85aaaded9c829d0b3f1457a1ddcc1542125f9d"
     },
     {
       "path": "assets/rayls-logo.svg",
@@ -43,8 +43,8 @@
     },
     {
       "path": "assets/site.js",
-      "size": 6425,
-      "sha256": "66e46790e13ee13f2a7d6168cd356b36bb99b7225d6866ed405984b1321f619f"
+      "size": 7185,
+      "sha256": "bee0ab132b238b61abf04a204b151b1f413a15940a26a72c0118e9f7ad8ef4de"
     },
     {
       "path": "audit/2026-11-04-runtime-provenance.json",
@@ -778,8 +778,8 @@
     },
     {
       "path": "index.html",
-      "size": 23648,
-      "sha256": "069e146d59dae725b930e714ef1ac5999f581921ae731deb1a48758c627b00e9"
+      "size": 23736,
+      "sha256": "30645ea642505a55dc224d8e981fd1b0e091f2d9bd470deb79db250bc2abd1fa"
     },
     {
       "path": "lab/EnygmaRecoveryProbe.t.sol",
@@ -798,8 +798,8 @@
     },
     {
       "path": "scripts/check_links.py",
-      "sha256": "2f087c7fb0a8462a889eee796ff9050decebb154bd244be2966f6f427d2ca221",
-      "size": 1378
+      "size": 3146,
+      "sha256": "653957b678178d9cf594a0f1f24a8cbfbebb7885a1d0755688f8e4a110588df8"
     },
     {
       "path": "scripts/check_release.py",
