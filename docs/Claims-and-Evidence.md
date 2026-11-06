@@ -1,3 +1,12 @@
+---
+layout: research-page
+title: "Claims and Evidence"
+doc_number: "04"
+doc_kind: "CLAIMS & SOURCES"
+doc_filename: "Claims-and-Evidence.md"
+summary: "A claim-by-claim map of observed results, supporting records, and the difference between measurements and interpretation."
+---
+
 # Claims and Evidence
 
 This document separates observed behavior from interpretation and open questions.

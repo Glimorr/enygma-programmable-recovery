@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#160f2a">
+  <meta name="description" content="{{ page.summary | escape }}">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ page.title | escape }} — Enygma Research Library">
+  <meta property="og:description" content="{{ page.summary | escape }}">
+  <title>{{ page.title | escape }} | Enygma Research Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/docs.css' | relative_url }}">
+  <script defer src="{{ '/assets/docs.js' | relative_url }}"></script>
+</head>
+<body data-document="{{ page.doc_number | escape }}">
+  <a class="skip-link" href="#article">Skip to research</a>
+  <div class="reading-progress" aria-hidden="true"><span id="progress-fill"></span></div>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a href="{{ '/' | relative_url }}" class="brand-link" aria-label="Back to Enygma research home">
+        <img src="{{ '/assets/rayls-logo.svg' | relative_url }}" alt="Rayls" width="108" height="32">
+        <span class="brand-rule"></span>
+        <span class="brand-independent">INDEPENDENT<br>RESEARCH</span>
+      </a>
+      <nav class="header-links" aria-label="Research navigation">
+        <a href="{{ '/' | relative_url }}">Overview</a>
+        <a href="{{ '/docs/Research.html' | relative_url }}">Research</a>
+        <a href="{{ '/docs/Evidence-Register.html' | relative_url }}">Evidence</a>
+        <a href="{{ '/docs/Verification-Boundaries.html' | relative_url }}">Verification</a>
+      </nav>
+      <a class="github-link" href="https://github.com/Glimorr/enygma-programmable-recovery" target="_blank" rel="noopener noreferrer">Source <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <section class="document-hero" aria-labelledby="page-title">
+    <div class="hero-mesh" aria-hidden="true"></div>
+    <div class="hero-ambient hero-ambient-one" aria-hidden="true"></div>
+    <div class="hero-ambient hero-ambient-two" aria-hidden="true"></div>
+    <div class="shell hero-inner">
+      <div class="hero-copy">
+        <div class="breadcrumb"><a href="{{ '/' | relative_url }}">Enygma research</a><span>/</span><span>Document {{ page.doc_number | escape }}</span></div>
+        <div class="hero-eyebrow"><span class="eyebrow-pulse"></span> RAYLS ENYGMA / {{ page.doc_kind | escape }}</div>
+        <h1 id="page-title">{{ page.title | escape }}</h1>
+        <p class="hero-summary">{{ page.summary | escape }}</p>
+        <div class="hero-actions">
+          <a class="button button-lime" href="#article">Read document <span aria-hidden="true">↓</span></a>
+          <a class="button button-ghost" href="https://github.com/Glimorr/enygma-programmable-recovery/blob/main/docs/{{ page.doc_filename | escape }}" target="_blank" rel="noopener noreferrer">Original Markdown <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-source"><span></span> Researcher-operated local-chain evidence · Independently hosted code checks</div>
+      </div>
+      <div class="hero-graphic" aria-hidden="true" id="hero-graphic">
+        <div class="graphic-orbit orbit-outer"></div>
+        <div class="graphic-orbit orbit-inner"></div>
+        <div class="graphic-disc disc-1"></div>
+        <div class="graphic-disc disc-2"></div>
+        <div class="graphic-card" id="hero-card">
+          <div class="graphic-top"><span>RESEARCH / {{ page.doc_number | escape }}</span><span class="green-led"></span></div>
+          <svg class="graphic-flow" viewBox="0 0 340 185" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 92 H290" stroke="#A99BBE" stroke-width="2" stroke-dasharray="6 7"/>
+            <path d="M162 92 H290" stroke="#ECFB3E" stroke-width="2" stroke-linecap="round" class="flow-line"/>
+            <rect x="15" y="56" width="88" height="72" rx="18" fill="#33274C" stroke="#807496"/>
+            <rect x="126" y="56" width="88" height="72" rx="18" fill="#ECFB3E" stroke="#ECFB3E"/>
+            <rect x="237" y="56" width="88" height="72" rx="18" fill="#33274C" stroke="#807496"/>
+            <path d="M54 76 V108 M43 86 L54 75 L65 86 M43 99 L54 110 L65 99" stroke="#B8A7DD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="170" cy="91" r="14" stroke="#201531" stroke-width="3"/>
+            <circle cx="170" cy="91" r="5" fill="#201531"/>
+            <path d="M268 91 H294 M284 80 L295 91 L284 102" stroke="#B8A7DD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="118" cy="92" r="5" fill="#ECFB3E" class="flow-particle"/>
+            <text x="59" y="148" text-anchor="middle" fill="#BBACD4" font-size="10" font-family="Arial">SOURCE</text>
+            <text x="170" y="148" text-anchor="middle" fill="#ECFB3E" font-size="10" font-family="Arial">HUB</text>
+            <text x="281" y="148" text-anchor="middle" fill="#BBACD4" font-size="10" font-family="Arial">DEST.</text>
+          </svg>
+          <div class="graphic-bottom"><span>THREE-CHAIN STUDY</span><span>LOCAL ENVIRONMENT</span></div>
+        </div>
+        <div class="graphic-badge badge-top"><span class="tiny-green"></span> MEASURED · 12 TRIALS</div>
+        <div class="graphic-badge badge-bottom">51 RECORDED LOCAL TXS <span>↗</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="document-facts">
+    <div class="shell facts-row">
+      <div><span class="fact-label">DOCUMENT</span><strong>{{ page.doc_number | escape }} / 06</strong></div>
+      <div><span class="fact-label">COLLECTION</span><strong>Enygma Recovery</strong></div>
+      <div><span class="fact-label">READING TIME</span><strong id="read-time">—</strong></div>
+      <div><span class="fact-label">PROVENANCE</span><strong>Independent Research</strong></div>
+    </div>
+  </div>
+
+  <div class="shell document-grid" id="article">
+    <aside class="sidebar" aria-label="Document navigation">
+      <div class="sidebar-sticky">
+        <div class="sidebar-card">
+          <div class="sidebar-heading"><span class="sidebar-heading-dot"></span> RESEARCH COLLECTION</div>
+          <nav class="collection-links" aria-label="Other research documents">
+            <a href="{{ '/docs/Research.html' | relative_url }}" data-page-name="Research.html"><span>01</span> Research report <b aria-hidden="true">↗</b></a>
+            <a href="{{ '/docs/Evidence-Register.html' | relative_url }}" data-page-name="Evidence-Register.html"><span>02</span> Evidence register <b aria-hidden="true">↗</b></a>
+            <a href="{{ '/docs/Verification-Boundaries.html' | relative_url }}" data-page-name="Verification-Boundaries.html"><span>03</span> Verification method <b aria-hidden="true">↗</b></a>
+            <a href="{{ '/docs/Claims-and-Evidence.html' | relative_url }}" data-page-name="Claims-and-Evidence.html"><span>04</span> Claims &amp; evidence <b aria-hidden="true">↗</b></a>
+            <a href="{{ '/docs/Disclosure.html' | relative_url }}" data-page-name="Disclosure.html"><span>05</span> Disclosure &amp; scope <b aria-hidden="true">↗</b></a>
+            <a href="{{ '/docs/Recording-Guide.html' | relative_url }}" data-page-name="Recording-Guide.html"><span>06</span> Recording guide <b aria-hidden="true">↗</b></a>
+          </nav>
+        </div>
+        <div class="sidebar-card toc-card">
+          <div class="sidebar-heading"><span class="sidebar-heading-dot"></span> ON THIS PAGE</div>
+          <nav class="toc-links" id="page-toc" aria-label="Sections in this document"></nav>
+        </div>
+        <div class="sidebar-bottom"><span class="mini-led"></span> 12 transfers / 4 conditions / 51 local observations</div>
+      </div>
+    </aside>
+
+    <main class="document-main">
+      <div class="article-topline"><div><span class="article-marker"></span> ORIGINAL DOCUMENTATION <span class="doc-number-inline">/ {{ page.doc_kind | escape }}</span></div><button class="toc-toggle" id="toc-toggle" type="button" aria-expanded="false" aria-controls="mobile-outline">Jump to section <span aria-hidden="true">⌄</span></button></div>
+      <div class="mobile-outline" id="mobile-outline" hidden><nav id="mobile-toc" aria-label="Document section jump links"></nav></div>
+      <article class="research-content" id="research-content">
+        {{ content }}
+      </article>
+      <div class="end-of-document">
+        <div class="end-ornament" aria-hidden="true">✳</div>
+        <h2>Keep following the evidence.</h2>
+        <p>Explore the supporting records, verify the published release, or continue to the next research document.</p>
+        <div class="end-actions">
+          <a class="button button-dark" href="{{ '/docs/Evidence-Register.html' | relative_url }}">Evidence register <span aria-hidden="true">↗</span></a>
+          <a class="button button-outline" href="{{ '/' | relative_url }}">Back to overview <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="document-prev-next" id="document-prev-next" aria-label="Continue reading"></div>
+    </main>
+  </div>
+
+  <section class="verification-strip">
+    <div class="shell verification-inner">
+      <div><p class="verification-eyebrow">LOOK BEYOND THE SUMMARY</p><h2>Follow the files, not just the findings.</h2><p>Public receipts, original measured state, independent code checks and precise verification boundaries.</p></div>
+      <a class="button button-lime" href="https://github.com/Glimorr/enygma-programmable-recovery" target="_blank" rel="noopener noreferrer">Inspect the public repository <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="shell footer-main">
+      <div class="footer-brand"><img src="{{ '/assets/rayls-logo.svg' | relative_url }}" alt="Rayls" width="108" height="32"><p>An independently authored Rayls Enygma research publication. The use of Rayls branding does not imply official authorship or endorsement.</p></div>
+      <div class="footer-links"><h3>Research</h3><a href="{{ '/' | relative_url }}">Overview</a><a href="{{ '/docs/Research.html' | relative_url }}">Method and results</a><a href="{{ '/docs/Evidence-Register.html' | relative_url }}">Public evidence</a></div>
+      <div class="footer-links"><h3>Primary sources</h3><a href="https://docs.rayls.com/docs/how-enygma-works" target="_blank" rel="noopener noreferrer">Rayls documentation ↗</a><a href="https://github.com/raylsnetwork/rayls-sovereign-contracts" target="_blank" rel="noopener noreferrer">Sovereign contracts ↗</a><a href="https://github.com/raylsnetwork/rayls-sovereign-relayer" target="_blank" rel="noopener noreferrer">Sovereign relayer ↗</a></div>
+    </div>
+    <div class="shell footer-base"><span>© 2026 · Independent research</span><span>Local-chain results are not external public-chain settlement confirmations.</span><a href="#page-title">Back to top ↑</a></div>
+  </footer>
+
+  <div class="guide-widget" id="guide-widget" data-open="true">
+    <div class="guide-speech" id="guide-speech" role="group" aria-label="Animated research navigator">
+      <div class="guide-caption"><span class="guide-caption-dot"></span> YOUR RESEARCH COMPANION <span class="guide-step" id="guide-step">01</span></div>
+      <p id="guide-message">I’m Orbit. I’ll help you navigate the methodology and evidence without changing a single result.</p>
+      <div class="guide-actions">
+        <button type="button" class="guide-action-primary" id="guide-next">Next section <span aria-hidden="true">↓</span></button>
+        <button type="button" class="guide-action-secondary" id="guide-hide">Hide</button>
+      </div>
+    </div>
+    <button type="button" class="guide-character" id="guide-toggle" aria-label="Hide animated research guide" aria-expanded="true" aria-controls="guide-speech" title="Orbit — your research navigator">
+      <svg viewBox="0 0 122 145" role="img" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="bodyGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#f3f4fd"/><stop offset="100%" stop-color="#aea3cc"/>
+          </linearGradient>
+          <linearGradient id="glassGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#4c3a73"/><stop offset="100%" stop-color="#1c1238"/>
+          </linearGradient>
+          <filter id="robotShadow" x="-50%" y="-50%" width="200%" height="200%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#130a26" flood-opacity=".45"/></filter>
+        </defs>
+        <g filter="url(#robotShadow)" class="robot-body">
+          <path d="M57 29 V17" stroke="#f1f0fa" stroke-width="6" stroke-linecap="round"/>
+          <circle class="antenna-light" cx="57" cy="13" r="8" fill="#ecfb3e"/>
+          <path class="robot-arm arm-left" d="M30 83 C14 81 12 65 11 59" stroke="#d5c9eb" stroke-width="12" stroke-linecap="round"/>
+          <path class="robot-arm arm-right" d="M89 83 C106 78 109 63 107 54" stroke="#d5c9eb" stroke-width="12" stroke-linecap="round"/>
+          <path d="M36 105 L32 122 M77 105 L84 122" stroke="#9d8ebd" stroke-width="12" stroke-linecap="round"/>
+          <rect x="21" y="33" width="76" height="78" rx="26" fill="url(#bodyGradient)" stroke="#ffffff" stroke-width="3"/>
+          <rect x="27" y="43" width="64" height="49" rx="19" fill="url(#glassGradient)"/>
+          <path d="M38 57 C48 48 66 48 80 57" stroke="#b7add5" stroke-width="3" stroke-linecap="round" opacity=".5"/>
+          <ellipse class="robot-eye" cx="46" cy="68" rx="6" ry="9" fill="#ecfb3e"/>
+          <ellipse class="robot-eye" cx="73" cy="68" rx="6" ry="9" fill="#ecfb3e"/>
+          <path d="M50 82 Q60 90 69 82" stroke="#ecfb3e" stroke-width="3" stroke-linecap="round" fill="none"/>
+          <rect x="48" y="99" width="23" height="5" rx="2.5" fill="#807298"/>
+        </g>
+        <path class="robot-spark" d="M109 16 L112 25 L121 28 L112 31 L109 40 L106 31 L97 28 L106 25 Z" fill="#ecfb3e"/>
+      </svg>
+      <span class="guide-character-label">ORBIT</span>
+    </button>
+  </div>
+  <div class="sr-only" id="guide-status" role="status" aria-live="polite"></div>
+</body>
+</html>

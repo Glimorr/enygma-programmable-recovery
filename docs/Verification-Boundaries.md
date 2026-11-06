@@ -1,3 +1,12 @@
+---
+layout: research-page
+title: "Independent Verification Boundaries"
+doc_number: "03"
+doc_kind: "VERIFICATION METHOD"
+doc_filename: "Verification-Boundaries.md"
+summary: "Trace which checks establish archive consistency, independently executed code behavior, executable identity, and the public testnet commitment."
+---
+
 # Independent Verification Boundaries
 
 There are four distinct checks in this research package. They have different evidentiary force and must not be described as interchangeable.

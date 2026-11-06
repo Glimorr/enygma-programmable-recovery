@@ -1,3 +1,12 @@
+---
+layout: research-page
+title: "Three Silent Research Videos"
+doc_number: "06"
+doc_kind: "RECORDING HANDBOOK"
+doc_filename: "Recording-Guide.md"
+summary: "A practical evidence-focused presentation plan for recording original transfer results, recovery observations, and independent checks."
+---
+
 # Three silent research videos
 
 Record the actual evidence displays without repeating transfers or performing interventions during capture. Voiceover can be written after the three silent recordings are finished.

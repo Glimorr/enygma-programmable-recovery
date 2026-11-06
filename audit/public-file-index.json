@@ -17,6 +17,21 @@
       "size": 5659
     },
     {
+      "path": "_layouts/research-page.html",
+      "sha256": "dabfaba31980800aa6950975b41c7f346835da0f57a5359028d34520922736a7",
+      "size": 14537
+    },
+    {
+      "path": "assets/docs.css",
+      "sha256": "4c8460e809ba38dde5f9a1cf2d3f0c1cab9c9c06a5de0635d4b68a6be103a624",
+      "size": 24885
+    },
+    {
+      "path": "assets/docs.js",
+      "sha256": "a8217b01b26c3e0c1b22488dc9ae439db71dc4ce88ce0a1eee9be0c8b8fa4d78",
+      "size": 13804
+    },
+    {
       "path": "assets/rayls-logo.svg",
       "size": 5124,
       "sha256": "969904c91a526e670dbf6d24c527c018486e47453424ae7c12b4afac8123ddd9"
@@ -53,33 +68,33 @@
     },
     {
       "path": "docs/Claims-and-Evidence.md",
-      "sha256": "f3153cda9883919be311f4aacbbb64c49776067087ee64f0fed9607a28853da5",
-      "size": 3551
+      "sha256": "64364b2753f2d4495de4f122e2113d5fdcf964052197a852e74f01224c582001",
+      "size": 3829
     },
     {
       "path": "docs/Disclosure.md",
-      "sha256": "8531ba92677e2960fa765c0094fcadd49bd3076b86e74fc4c82171e88169cc12",
-      "size": 1976
+      "sha256": "c2fc90dfc1a4296cd46d9895c7c7846b429fe98d02ca49978496e149bc13a96c",
+      "size": 2261
     },
     {
       "path": "docs/Evidence-Register.md",
-      "sha256": "d170fe8adac648e4a34502204956aacf077fe14493bee9eb026e7921cc95c6a9",
-      "size": 4818
+      "sha256": "71a3f58be837f606b28dec990a0839032e3d08bcecb3a81f543f2cb0b13deeaf",
+      "size": 5098
     },
     {
       "path": "docs/Recording-Guide.md",
-      "sha256": "1c63e12f5c59dae4371c5887c37d0914712f83bb9864752532b439d2bd190057",
-      "size": 2714
+      "sha256": "a06f3a9f7ea5bc9b801f747e238f228991a5057e4e29285584984e9e761b6b62",
+      "size": 3012
     },
     {
       "path": "docs/Research.md",
-      "sha256": "080450cf55c12ffc5a664b62e8408fe822fbced8dde013f57bb020f1374c3225",
-      "size": 8234
+      "sha256": "79ee493027b5570e10772038e7d27863e89474511367e3e25ad23366adec5950",
+      "size": 8566
     },
     {
       "path": "docs/Verification-Boundaries.md",
-      "sha256": "fa06f1c79ff58589e95f03fb913b5ac1c604c5dd4942893a8d46dd8d05e5ac96",
-      "size": 4942
+      "sha256": "621d8013a9658ad5a6e592ce531828fa85b0e075e65f9633af733f86494c49b6",
+      "size": 5265
     },
     {
       "path": "evidence/derived/2026-11-04-confirmatory-results.csv",

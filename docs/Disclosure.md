@@ -1,3 +1,12 @@
+---
+layout: research-page
+title: "Research Scope and Responsible Disclosure"
+doc_number: "05"
+doc_kind: "DISCLOSURE & SCOPE"
+doc_filename: "Disclosure.md"
+summary: "The research scope, observed technical boundaries, and the handling of security-sensitive implementation details."
+---
+
 # Research scope and responsible disclosure
 
 This is independent research on Rayls Enygma using locally operated development chains and pinned publicly available implementation sources.

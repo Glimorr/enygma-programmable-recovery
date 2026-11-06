@@ -1,3 +1,12 @@
+---
+layout: research-page
+title: "Can a Cross-Chain Payment Settle Once but Execute an Application Twice?"
+doc_number: "01"
+doc_kind: "RESEARCH REPORT"
+doc_filename: "Research.md"
+summary: "The original twelve-transfer study of protected settlement minting and repeated application effects under controlled receiver recovery."
+---
+
 # Can a cross-chain payment settle once but execute an application twice?
 
 ## A controlled Rayls Enygma receiver-recovery experiment

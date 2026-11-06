@@ -1,3 +1,12 @@
+---
+layout: research-page
+title: "Evidence Register"
+doc_number: "02"
+doc_kind: "EVIDENCE INVENTORY"
+doc_filename: "Evidence-Register.md"
+summary: "Follow the published transaction observations, state records, forensic checks, and the complete original-archive disposition."
+---
+
 # Evidence register
 
 This register distinguishes independently readable records from evidence that remains in the researcher's confidential archive.
