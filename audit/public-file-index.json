@@ -17,6 +17,21 @@
       "size": 5659
     },
     {
+      "path": "assets/rayls-logo.svg",
+      "size": 5124,
+      "sha256": "969904c91a526e670dbf6d24c527c018486e47453424ae7c12b4afac8123ddd9"
+    },
+    {
+      "path": "assets/site.css",
+      "size": 30297,
+      "sha256": "218e6a85e8de096453ae76ac3cbab521790911000235e7a510308e054af7a9a0"
+    },
+    {
+      "path": "assets/site.js",
+      "size": 6425,
+      "sha256": "66e46790e13ee13f2a7d6168cd356b36bb99b7225d6866ed405984b1321f619f"
+    },
+    {
       "path": "audit/2026-11-04-runtime-provenance.json",
       "sha256": "f8526ee5c6cf96b6ed472e1d1275671d5ef5f93aa63a952e6203e7e7dd4019c7",
       "size": 1504
@@ -748,8 +763,8 @@
     },
     {
       "path": "index.html",
-      "sha256": "e458f68bbcb7994d6d0aafbd5762b526feb63b437de643eeb13a9ccd61b75fa5",
-      "size": 8429
+      "size": 23648,
+      "sha256": "069e146d59dae725b930e714ef1ac5999f581921ae731deb1a48758c627b00e9"
     },
     {
       "path": "lab/EnygmaRecoveryProbe.t.sol",

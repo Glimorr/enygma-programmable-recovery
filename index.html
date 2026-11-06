@@ -1,100 +1,295 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Can a Cross-Chain Payment Settle Once but Execute an Application Twice? — Rayls Enygma</title>
-<meta name="description" content="A controlled technical study of settlement minting and programmable application execution after Enygma relayer recovery.">
-<style>
-:root{--ink:#172536;--mute:#57687c;--line:#d8e0e7;--paper:#fff;--soft:#f5f7f9;--accent:#245e82}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.72 system-ui,-apple-system,"Segoe UI",sans-serif}
-main{max-width:940px;margin:0 auto;padding:50px 26px 84px}
-header{padding-bottom:38px;border-bottom:1px solid var(--line)}
-header p{font-size:18px;max-width:740px;color:var(--mute)}
-h1{font:500 clamp(38px,6vw,66px)/1.13 Georgia,serif;letter-spacing:-.03em;margin:16px 0 21px}
-h2{font:500 34px/1.25 Georgia,serif;letter-spacing:-.02em;margin:62px 0 16px}
-h3{font:600 18px/1.4 system-ui;margin:30px 0 8px}
-nav{display:flex;gap:24px;flex-wrap:wrap;padding:18px 0;border-bottom:1px solid var(--line)}
-a{color:var(--accent);text-underline-offset:3px}nav a{font-size:14px;text-decoration:none}
-p{max-width:800px}strong{font-weight:650}
-.eyebrow{color:var(--mute);text-transform:uppercase;letter-spacing:.14em;font-size:12px;font-weight:650}
-.thesis{font-size:20px;color:var(--ink);max-width:780px}
-table{width:100%;border-collapse:collapse;font-size:15px;margin:25px 0 16px}
-thead th{font-weight:650;text-align:left;background:var(--soft);border-bottom:2px solid var(--ink)}
-td,th{border-bottom:1px solid var(--line);padding:13px 15px;vertical-align:top}
-figure{margin:34px 0}figure img{width:100%;height:auto;border:1px solid var(--line)}
-figcaption{font-size:13px;color:var(--mute);padding:12px 4px}
-.note{border-left:2px solid var(--accent);padding:3px 0 3px 18px;color:var(--mute);margin:24px 0}
-small,footer{color:var(--mute);font-size:13px}
-footer{border-top:1px solid var(--line);margin-top:56px;padding-top:24px}
-code{font:13px/1.5 ui-monospace,Consolas,monospace;overflow-wrap:anywhere}
-ul{padding-left:25px}
-@media(max-width:620px){main{padding:26px 16px 54px}table{font-size:13px}td,th{padding:9px 8px}h2{font-size:29px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#160f2a">
+  <meta name="description" content="Original research on Rayls Enygma recovery: twelve controlled transfers, one settlement mint, and two application effects after interrupted processing. Explore the evidence.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Can a Cross-Chain Payment Settle Once but Execute an Application Twice?">
+  <meta property="og:description" content="A measured study of exactly-once settlement and application effects in a controlled Rayls Enygma environment.">
+  <title>Can a Cross-Chain Payment Settle Once but Execute an Application Twice? | Enygma Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
 </head>
 <body>
-<main>
-<header>
-<div class="eyebrow">Independent technical research · Rayls Enygma</div>
-<h1>Can a Cross-Chain Payment Settle Once but Execute an Application Twice?</h1>
-<p>Separating settlement minting from application execution when destination processing resumes after an interrupted completion step.</p>
-<p class="note">Research status: controlled local-network findings. Detailed fault-controller instructions remain in a private research archive; local receipts and financial-state evidence are published for inspection.</p>
-</header>
-<nav aria-label="Page navigation">
-<a href="#question">Research question</a><a href="#method">Experimental design</a><a href="#results">Observations</a><a href="#verification">Verification</a><a href="#limits">Limits</a>
-</nav>
-<section id="question">
-<h2>Research question</h2>
-<p class="thesis">Does a destination transfer’s protected token mint also imply exactly-once execution of its attached application call after the relayer recovers?</p>
-<p>Enygma carries approved programmable steps to the destination Sovereign chain. The mint and steps are atomic within a transaction, but the relayer and Hub use separate transactions and messages. This study tests whether the settlement and application effects remain coupled across an interrupted completion boundary.</p>
-</section>
-<section id="method">
-<h2>Experimental design</h2>
-<p>Two Sovereign chains, a Private Network Hub, proof services and relayers ran in an isolated local Docker environment. Each measured payment transferred 0.1 token and used a new logical payment identifier. A local template-approved observer contract counted application invocations separately from token mints.</p>
-<table>
-<thead><tr><th>Condition</th><th>Question</th><th>Trials</th></tr></thead>
-<tbody>
-<tr><td>C0 · Normal delivery</td><td>Does a completed payment mint and execute once?</td><td>3</td></tr>
-<tr><td>C1 · Rejected application</td><td>Does compensation return the burned value?</td><td>3</td></tr>
-<tr><td>F1 · Interrupted processing</td><td>What changes when processing resumes after a destination dispatch?</td><td>3</td></tr>
-<tr><td>F2 · Interrupted completion</td><td>What changes when acknowledgment is interrupted?</td><td>3</td></tr>
-</tbody>
-</table>
-<p>The receiver used a test-only fault-injection build at the two chosen boundaries. The trial schedule was fixed locally before the measurements; no external pre-experiment timestamp is claimed.</p>
-</section>
-<section id="results">
-<h2>Observations</h2>
-<p>Normal transfers minted once and executed once. Three deliberately rejected applications were fully refunded without a destination application effect. In all six interrupted trials, the destination minted once while the approved application call produced two effects.</p>
-<figure>
-<img src="figures/enygma-application-effects.svg" alt="Bar chart comparing settlement mints and application executions across four three-trial conditions">
-<figcaption>Three trials per condition. Counts are derived from the preserved local-chain results, not inferred from arbitrary examples.</figcaption>
-</figure>
-<figure>
-<img src="figures/enygma-retry-intervals.svg" alt="Six measured retry intervals between first and second destination executions, 29 to 31 seconds">
-<figcaption>Time between local destination block timestamps for first execution and retry. Block timestamps are not external wall-clock attestations.</figcaption>
-</figure>
-<p>The observed result is <strong>settlement minted once, application executed twice</strong> under the controlled retry conditions. It is not evidence of double minting or an exploit on a production network.</p>
-</section>
-<section id="verification">
-<h2>Verification</h2>
-<p>The original archive includes twelve historical accounting checks, fifty-one local receipt/root witnesses, six recorded one-shot interventions, three mined source refunds and five rejected copies of intentionally falsified evidence. Original file integrity is covered by a SHA-256 manifest of 289 artifacts.</p>
-<p>GitHub-hosted runners separately re-executed the evidence verifier, official-contract Solidity tests, a native relayer receiver test and a deterministic rebuild of the normal and instrumented relayer binaries. The rebuilt executable hashes matched those used in the local experiment.</p>
-<p>Research report: <a href="docs/Research.html">Enygma Programmable Transfer Recovery</a>. Evidence inventory: <a href="docs/Evidence-Register.html">Evidence Register</a>. Scope of external computation: <a href="docs/Verification-Boundaries.html">Independent Verification Boundaries</a>.</p>
-</section>
-<section id="limits">
-<h2>Limits</h2>
-<ul>
-<li>The original chain observations come from one operator-controlled environment, not public Rayls consensus.</li>
-<li>The destination receiver used a test-only fault-injection build; production applicability was not demonstrated.</li>
-<li>Externally hosted tests verify contracts, a receiver recovery path and exact executable builds, not a separately operated full three-chain network.</li>
-<li>The sealed evidence manifest was committed to <a href="https://testnet-explorer.rayls.com/tx/0x397f1979a00ad430f1b925c62d3b14ced83eb294ebc775269865a38d87e855db" target="_blank" rel="noopener noreferrer">Rayls Public Testnet, block 22,398,118</a>. This publicly timestamps the archive digest after the experiment; it cannot prove private settlement or retroactively prove preregistration.</li>
-<li>Application-level logical-ID guarding is a possible design control. The protocol’s intended cross-retry guarantee remains a specification question.</li>
-</ul>
-</section>
-<footer>
-<p>Source: <a href="https://docs.rayls.com/docs/how-enygma-works">Rayls Enygma documentation</a> · <a href="https://github.com/raylsnetwork/rayls-sovereign-contracts">Sovereign contracts</a> · <a href="https://github.com/raylsnetwork/rayls-sovereign-relayer">Sovereign relayer</a></p>
-<p>Published independent research. The public-chain transaction commits an evidence-manifest hash after the experiment; it is not a private Enygma settlement receipt.</p>
-</footer>
-</main>
+  <a class="skip-link" href="#main">Skip to research</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scroll-progress-fill"></span></div>
+  <header class="site-nav">
+    <div class="nav-inner shell">
+      <a class="brand" href="#top" aria-label="Enygma independent research — back to top">
+        <img src="assets/rayls-logo.svg" alt="Rayls" width="108" height="32">
+        <span class="brand-separator" aria-hidden="true"></span>
+        <span class="brand-description">INDEPENDENT<br>RESEARCH</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#question">The question</a>
+        <a href="#experiment">Experiment</a>
+        <a href="#findings">Results</a>
+        <a href="#evidence">Evidence</a>
+      </nav>
+      <a class="nav-cta" href="https://github.com/Glimorr/enygma-programmable-recovery" target="_blank" rel="noopener noreferrer">
+        GitHub <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-heading">
+      <div class="hero-glow hero-glow-one" aria-hidden="true"></div>
+      <div class="hero-glow hero-glow-two" aria-hidden="true"></div>
+      <div class="hero-grid shell">
+        <div class="hero-copy">
+          <div class="eyebrow hero-eyebrow"><span class="eyebrow-dot"></span> RAYLS ENYGMA / INDEPENDENT STUDY <span class="eyebrow-date">NOV '26</span></div>
+          <h1 id="hero-heading">Can a cross-chain payment <span class="word-outline">settle once</span> but execute an <span class="lime-text">application twice?</span></h1>
+          <p class="hero-lead">A programmable payment has two outcomes that look similar—until recovery separates them. We measured what actually happened across twelve controlled transfers.</p>
+          <div class="hero-actions">
+            <a href="#findings" class="button button-lime">Explore the findings <span aria-hidden="true">↗</span></a>
+            <a href="#experiment" class="button button-outline">How we tested <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-trust"><span class="trust-line" aria-hidden="true"></span><span>Original measurements · Public evidence · Locally operated research chains</span></div>
+        </div>
+        <div class="hero-art-wrap" aria-label="Illustration of one destination settlement mint and two application executions">
+          <div class="hero-art" data-tilt>
+            <div class="art-grid" aria-hidden="true"></div>
+            <div class="art-orbit art-orbit-outer" aria-hidden="true"></div>
+            <div class="art-orbit art-orbit-inner" aria-hidden="true"></div>
+            <div class="art-signal signal-one" aria-hidden="true"></div>
+            <div class="art-signal signal-two" aria-hidden="true"></div>
+            <div class="art-core">
+              <div class="art-core-top">DESTINATION RECOVERY <span class="live-dot"></span></div>
+              <div class="art-core-body">
+                <div class="art-core-emblem"><span class="art-core-ring"></span><span class="core-count">01</span></div>
+                <div class="art-core-caption">Settlement mint <strong>once</strong></div>
+                <div class="art-core-rule"></div>
+                <div class="art-core-counts">
+                  <span>APP EXECUTIONS</span>
+                  <strong><b>01</b><b class="art-plus">+</b><b>01</b><span class="art-equals">= 02</span></strong>
+                </div>
+              </div>
+              <div class="art-core-bottom"><span>F1 / F2</span><span>CONTROLLED RECOVERY</span></div>
+            </div>
+            <div class="floating-chip chip-left"><span class="chip-symbol">✓</span><span>Mint protected<br><strong>1 per transfer</strong></span></div>
+            <div class="floating-chip chip-right"><span class="chip-symbol chip-purple">↻</span><span>Observer invoked<br><strong>2 per transfer</strong></span></div>
+          </div>
+          <p class="art-caption">Illustrative display of the six interrupted local trials—not a live chain monitor.</p>
+        </div>
+      </div>
+      <div class="hero-bottom shell">
+        <div class="scroll-cue"><span class="scroll-mouse" aria-hidden="true"><span></span></span> SCROLL TO INVESTIGATE</div>
+        <div class="hero-footnote">01 / QUESTION → METHOD → EVIDENCE</div>
+      </div>
+    </section>
+
+    <div class="metric-ribbon" aria-label="Research at a glance">
+      <div class="shell metric-grid">
+        <div class="metric"><strong>12<span class="metric-accent">.</span></strong><span>measured transfers</span></div>
+        <div class="metric"><strong>04<span class="metric-accent">.</span></strong><span>experimental conditions</span></div>
+        <div class="metric"><strong>51<span class="metric-accent">.</span></strong><span>archived local transactions</span></div>
+        <div class="metric"><strong>03<span class="metric-accent">.</span></strong><span>mined source refunds</span></div>
+      </div>
+    </div>
+
+    <section class="section section-question" id="question">
+      <div class="shell split-intro">
+        <div data-reveal>
+          <p class="section-kicker"><span>01</span> / THE QUESTION</p>
+          <h2>Settlement is not the <em>whole</em> transaction.</h2>
+        </div>
+        <div class="intro-side" data-reveal>
+          <p class="large-paragraph">A payment can settle exactly once while an associated programmable action is processed more than once. Those are different guarantees.</p>
+          <p>In Enygma, approved application instructions travel along with a confidential cross-chain payment. We wanted to know what happens when the receiver resumes after an interrupted completion step—not just whether the token balance looks right.</p>
+          <a class="text-link" href="docs/Research.html">Read the full research methodology <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="shell concept-cards">
+        <article class="concept-card" data-reveal data-depth="0.1">
+          <div class="concept-number">A / SETTLEMENT</div>
+          <div class="concept-icon coin-icon" aria-hidden="true">◈</div>
+          <h3>Token mint</h3>
+          <p>Does the destination receive the intended token amount once?</p>
+          <span class="concept-status"><span class="small-dot"></span> Protected in the observed trials</span>
+        </article>
+        <div class="concept-bridge" aria-hidden="true">≠</div>
+        <article class="concept-card concept-card-alt" data-reveal data-depth="0.2">
+          <div class="concept-number">B / PROGRAMMABILITY</div>
+          <div class="concept-icon app-icon" aria-hidden="true">⌘</div>
+          <h3>Application effect</h3>
+          <p>Does the approved downstream instruction also execute exactly once?</p>
+          <span class="concept-status concept-status-alt"><span class="small-dot"></span> Repeated under test recovery</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-network" id="experiment">
+      <div class="shell">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="section-kicker"><span>02</span> / EXPERIMENTAL ENVIRONMENT</p>
+            <h2>Built to measure the <em>boundary.</em></h2>
+          </div>
+          <p>Two Sovereign chains, a Private Network Hub, proof services and relayers in a locally operated Docker environment. Every trial used a new logical payment identifier and a 0.1-token research asset.</p>
+        </div>
+        <div class="network-stage" data-reveal>
+          <div class="network-backdrop" aria-hidden="true"></div>
+          <div class="network-flow">
+            <div class="network-node" data-depth="0.08">
+              <div class="node-icon" aria-hidden="true">01</div>
+              <div class="node-type">SOURCE / SOVEREIGN</div>
+              <h3>Origin chain</h3>
+              <p>Source balance and token supply decrease by 0.1.</p>
+              <span class="node-chain">CHAIN ID 12345</span>
+            </div>
+            <div class="network-connector" aria-hidden="true"><span class="connector-line"></span><span class="connector-head">→</span><span class="moving-packet"></span></div>
+            <div class="network-node node-hub" data-depth="0.03">
+              <div class="node-icon" aria-hidden="true">02</div>
+              <div class="node-type">PRIVATE NETWORK HUB</div>
+              <h3>Hub &amp; proof flow</h3>
+              <p>Confidential messaging and proof processing bridge the two sides.</p>
+              <span class="node-chain">CHAIN ID 1337</span>
+            </div>
+            <div class="network-connector" aria-hidden="true"><span class="connector-line"></span><span class="connector-head">→</span><span class="moving-packet"></span></div>
+            <div class="network-node" data-depth="0.08">
+              <div class="node-icon" aria-hidden="true">03</div>
+              <div class="node-type">DESTINATION / SOVEREIGN</div>
+              <h3>Receiver chain</h3>
+              <p>Settlement minting and an approved observer call are tracked separately.</p>
+              <span class="node-chain">CHAIN ID 12346</span>
+            </div>
+          </div>
+          <div class="network-footer"><span><span class="small-dot"></span> 3 locally operated EVM chains</span><span>Instrumented receiver · preserved historical outcomes</span></div>
+        </div>
+        <div class="experiment-note" data-reveal><strong>Designed for causality.</strong> Three normal deliveries, three rejected applications and six interrupted deliveries at two different recovery boundaries. The observer is deliberately non-idempotent so repeated invocations are measurable.</div>
+      </div>
+    </section>
+
+    <section class="section section-playground" id="results">
+      <div class="shell">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="section-kicker"><span>03</span> / EXPLORE THE MEASUREMENTS</p>
+            <h2>Four conditions.<br><em>One revealing difference.</em></h2>
+          </div>
+          <p>Select any condition to compare settlement mints, application executions and refunds. Each result is a summary of three historical local transfers.</p>
+        </div>
+        <div class="experiment-lab" data-reveal>
+          <div class="condition-list" aria-label="Choose experimental condition">
+            <button type="button" class="condition-button is-active" data-condition="C0" aria-pressed="true"><span class="condition-code">C0</span><span class="condition-label"><strong>Normal delivery</strong><small>Baseline · 3 trials</small></span><span class="condition-arrow" aria-hidden="true">↗</span></button>
+            <button type="button" class="condition-button" data-condition="C1" aria-pressed="false"><span class="condition-code">C1</span><span class="condition-label"><strong>Rejected application</strong><small>Compensation · 3 trials</small></span><span class="condition-arrow" aria-hidden="true">↗</span></button>
+            <button type="button" class="condition-button" data-condition="F1" aria-pressed="false"><span class="condition-code">F1</span><span class="condition-label"><strong>Interrupted processing</strong><small>Recovery case · 3 trials</small></span><span class="condition-arrow" aria-hidden="true">↗</span></button>
+            <button type="button" class="condition-button" data-condition="F2" aria-pressed="false"><span class="condition-code">F2</span><span class="condition-label"><strong>Interrupted completion</strong><small>Recovery case · 3 trials</small></span><span class="condition-arrow" aria-hidden="true">↗</span></button>
+          </div>
+          <div class="condition-detail" role="region" aria-live="polite" aria-label="Selected experimental outcome">
+            <div class="detail-top"><span class="detail-label">MEASURED OUTCOME / PER TRANSFER</span><span class="detail-count">3 / 3 TRIALS</span></div>
+            <h3 id="condition-heading">Normal delivery</h3>
+            <p id="condition-description">Each completed transfer minted once and invoked the approved observer once.</p>
+            <div class="bar-stack">
+              <div class="bar-row"><div class="bar-meta"><span>Destination mints</span><strong id="mint-value">1</strong></div><div class="bar-track"><div class="bar-fill bar-lime" id="mint-bar" style="width:50%"></div></div></div>
+              <div class="bar-row"><div class="bar-meta"><span>Application executions</span><strong id="app-value">1</strong></div><div class="bar-track"><div class="bar-fill bar-purple" id="app-bar" style="width:50%"></div></div></div>
+            </div>
+            <div class="detail-bottom"><span id="refund-label">Source refunds: <strong id="refund-value">0 of 3</strong></span><span id="condition-summary">Ordinary transfer completes once.</span></div>
+          </div>
+        </div>
+        <p class="lab-footnote">Click to switch evidence categories. This visualization changes the view of recorded findings; it does not send transactions or simulate a live payment.</p>
+      </div>
+    </section>
+
+    <section class="section section-discovery" id="findings">
+      <div class="discovery-glow" aria-hidden="true"></div>
+      <div class="shell">
+        <p class="section-kicker kicker-light" data-reveal><span>04</span> / THE OBSERVATION</p>
+        <div class="discovery-lead" data-reveal>
+          <h2>One mint.<br><span>Two application effects.</span></h2>
+          <p>Across all six controlled receiver interruptions, the first destination execution minted 0.1 token, while the subsequent recovery execution increased the application observer again without issuing another mint.</p>
+        </div>
+        <div class="discovery-metrics" data-reveal>
+          <div class="discovery-metric"><span>SETTLEMENT MINTS</span><strong>01</strong><small>per interrupted trial</small></div>
+          <div class="discovery-divider" aria-hidden="true"></div>
+          <div class="discovery-metric"><span>APPLICATION EFFECTS</span><strong>02</strong><small>per interrupted trial</small></div>
+          <div class="discovery-divider" aria-hidden="true"></div>
+          <div class="discovery-metric"><span>REPETITIONS</span><strong>06<span class="discovery-small">/06</span></strong><small>interrupted local trials</small></div>
+        </div>
+        <div class="figure-grid">
+          <figure class="research-figure" data-reveal>
+            <img src="figures/enygma-application-effects.svg" alt="Recorded mint and application effect counts for the four experimental conditions" loading="lazy" width="880" height="560">
+            <figcaption>Mint vs application effects · three original trials per condition</figcaption>
+          </figure>
+          <figure class="research-figure" data-reveal>
+            <img src="figures/enygma-retry-intervals.svg" alt="Archived local block timestamp intervals between first and second destination executions" loading="lazy" width="880" height="560">
+            <figcaption>Recorded recovery interval · local chain block timestamps</figcaption>
+          </figure>
+        </div>
+        <p class="discovery-precision" data-reveal>This is an application-level effect in an operator-controlled local Enygma environment with a test-only instrumented receiver. It is not a double mint, a public-chain Enygma settlement, or a confirmed production exploit.</p>
+      </div>
+    </section>
+
+    <section class="section section-evidence" id="evidence">
+      <div class="shell">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="section-kicker"><span>05</span> / FOLLOW THE EVIDENCE</p>
+            <h2>Receipts over <em>screenshots.</em></h2>
+          </div>
+          <p>The public release includes archived transaction/receipt records, locally reconstructed roots, historical balances, a hash-indexed archive disposition and executable verification checks.</p>
+        </div>
+        <div class="evidence-cards">
+          <a class="evidence-card" href="docs/Evidence-Register.html" data-reveal><span class="evidence-card-num">01 / ACCOUNTING</span><strong>12</strong><h3>Historical state records</h3><p>Source burns, destination mints, application calls and restored source balances.</p><span class="evidence-link">Inspect the inventory ↗</span></a>
+          <a class="evidence-card" href="docs/Evidence-Register.html" data-reveal><span class="evidence-card-num">02 / RECEIPTS</span><strong>51</strong><h3>Local transaction observations</h3><p>Distinct archived transactions with saved receipt/header root checks.</p><span class="evidence-link">See receipt references ↗</span></a>
+          <a class="evidence-card" href="https://github.com/Glimorr/enygma-programmable-recovery/actions/runs/41985083603" target="_blank" rel="noopener noreferrer" data-reveal><span class="evidence-card-num">03 / REPRODUCIBILITY</span><strong>04</strong><h3>GitHub Actions jobs</h3><p>Hosted evidence checks, pinned code tests and byte-identical relayer builds.</p><span class="evidence-link">View completed CI run ↗</span></a>
+        </div>
+        <div class="verification-panel" id="verification" data-reveal>
+          <div class="verification-copy">
+            <p class="section-kicker"><span>06</span> / VERIFY IT YOURSELF</p>
+            <h2>Don't take a chart on trust.</h2>
+            <p>Clone the published release and run the same read-only checks. No wallet, Docker deployment or transaction signing is required.</p>
+            <p class="verification-scope">These commands check the released local evidence and public archive integrity. Hosted code tests verify the provided source and builds; neither operation creates an outside validator witness for the locally operated chains.</p>
+            <a href="docs/Verification-Boundaries.html" class="text-link">What each verification establishes ↗</a>
+          </div>
+          <div class="code-card">
+            <div class="code-top"><span><span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span> research / terminal</span><button type="button" class="copy-button" data-copy="git clone https://github.com/Glimorr/enygma-programmable-recovery.git&#10;cd enygma-programmable-recovery&#10;python3 -B scripts/check_evidence.py&#10;python3 -B scripts/check_release.py&#10;python3 -B scripts/verify_public_commitment.py --online" aria-label="Copy verification commands">Copy ↗</button></div>
+            <pre><code><span class="code-muted"># Download the public evidence release</span>
+git clone https://github.com/Glimorr/enygma-programmable-recovery.git
+cd enygma-programmable-recovery
+
+<span class="code-muted"># Run the read-only checks</span>
+<span class="code-lime">python3 -B scripts/check_evidence.py</span>
+<span class="code-lime">python3 -B scripts/check_release.py</span>
+<span class="code-lime">python3 -B scripts/verify_public_commitment.py --online</span></code></pre>
+            <div class="code-bottom"><span class="status-light"></span> Archive verification · no chain writes</div>
+          </div>
+        </div>
+        <div class="commitment-panel" data-reveal>
+          <div class="commitment-seal" aria-hidden="true">#</div>
+          <div class="commitment-text">
+            <p class="commitment-kicker">PUBLIC TESTNET / POST-EXPERIMENT COMMITMENT</p>
+            <h3>An evidence archive anchored by a digest.</h3>
+            <p>On 4 November 2026, a SHA-256 digest of the final original evidence manifest was committed to Rayls Public Testnet in block <strong>22,398,118</strong>. This dates the archive commitment; it does not attest the original private-chain settlement or pre-register the trial plan.</p>
+            <div class="hash-row"><code id="archive-hash">3cf97ce8a4ea2f8b4248ea39e4b3f94b05abb96e8998ca9f7372d9c593859349</code><button type="button" class="copy-button hash-copy" data-copy="3cf97ce8a4ea2f8b4248ea39e4b3f94b05abb96e8998ca9f7372d9c593859349">Copy hash</button></div>
+          </div>
+          <a class="commitment-link" href="https://testnet-explorer.rayls.com/tx/0x397f1979a00ad430f1b925c62d3b14ced83eb294ebc775269865a38d87e855db" target="_blank" rel="noopener noreferrer">View transaction <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-close">
+      <div class="shell close-inner" data-reveal>
+        <div><p class="section-kicker kicker-light"><span>07</span> / THE TAKEAWAY</p><h2>Exactly-once settlement needs a second question.</h2></div>
+        <div><p>For programmable payments, protecting the token mint does not by itself establish exactly-once execution of every approved application effect across separate recovery transactions.</p><a href="docs/Research.html" class="button button-lime">Read the complete research <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-grid">
+      <div class="footer-brand"><img src="assets/rayls-logo.svg" alt="Rayls" width="108" height="32"><p>Independent research on Rayls Enygma. This website is not an official Rayls publication or an endorsement by Rayls.</p></div>
+      <div><h3>Research</h3><a href="docs/Research.html">Full report</a><a href="docs/Evidence-Register.html">Evidence register</a><a href="docs/Verification-Boundaries.html">Verification methodology</a><a href="docs/Disclosure.html">Disclosure &amp; scope</a></div>
+      <div><h3>Primary sources</h3><a href="https://docs.rayls.com/docs/how-enygma-works" target="_blank" rel="noopener noreferrer">Rayls Enygma docs ↗</a><a href="https://github.com/raylsnetwork/rayls-sovereign-contracts" target="_blank" rel="noopener noreferrer">Rayls Sovereign contracts ↗</a><a href="https://github.com/raylsnetwork/rayls-sovereign-relayer" target="_blank" rel="noopener noreferrer">Sovereign relayer ↗</a><a href="https://github.com/Glimorr/enygma-programmable-recovery" target="_blank" rel="noopener noreferrer">Research repository ↗</a></div>
+    </div>
+    <div class="shell footer-base"><span>© 2026 · Independent technical research</span><span>Research observations are from controlled locally operated networks.</span><a href="#top">Back to top ↑</a></div>
+  </footer>
+  <div id="copy-status" class="visually-hidden" role="status" aria-live="polite"></div>
 </body>
 </html>
