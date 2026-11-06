@@ -813,8 +813,8 @@
     },
     {
       "path": "scripts/verify_public_commitment.py",
-      "sha256": "122885a496ad3147a499e89c8178f77ae8469812c488c1b9efb658331d472fc7",
-      "size": 3739
+      "sha256": "c8aff57d6cd9216bcbb547d5697033439f67412189a02b58dd25d71c764168e6",
+      "size": 6107
     },
     {
       "path": "site/index.html",
