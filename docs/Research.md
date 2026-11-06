@@ -70,7 +70,7 @@ The preserved evidence-manifest digest is:
 
 3cf97ce8a4ea2f8b4248ea39e4b3f94b05abb96e8998ca9f7372d9c593859349
 
-The digest was committed on Rayls Public Testnet in [transaction 0x397f1979a00ad430f1b925c62d3b14ced83eb294ebc775269865a38d87e855db](https://testnet-explorer.rayls.com/tx/0x397f1979a00ad430f1b925c62d3b14ced83eb294ebc775269865a38d87e855db), block 22,398,118 (November 4, 2026, 19:57:39 UTC). The successful, zero-value transaction includes the exact 32-byte manifest SHA-256 digest. The block header, receipt, transaction input, sender, recipient and manifest hash were independently checked against live public RPC. This is a post-experiment evidence integrity commitment: it does not validate private-chain payments or establish preregistration before the experiment.
+The digest was committed on Rayls Public Testnet in [transaction 0x397f1979a00ad430f1b925c62d3b14ced83eb294ebc775269865a38d87e855db](https://testnet-explorer.rayls.com/tx/0x397f1979a00ad430f1b925c62d3b14ced83eb294ebc775269865a38d87e855db), block 22,398,118 (November 4, 2026, 19:57:39 UTC). The successful, zero-value transaction includes the exact 32-byte manifest SHA-256 digest. The live public RPC confirmed the transaction, containing block and exact manifest digest. During the final online verification, the RPC did not return the historical receipt, so the public explorer supplied the separately queried successful transaction status. This is a post-experiment evidence integrity commitment: it does not validate private-chain payments or establish preregistration before the experiment.
 
 ## Application-level replay guard
 
